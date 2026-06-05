@@ -2637,4 +2637,23 @@ button {
         transform: none !important;
         transition: none !important;
     }
+/* 1. Navbar Name fix: P logo ke paas naam dikhe */
+  .logo-text { display: block !important; font-size: 0.7rem !important; }
+  
+  /* 2. Hero Section: Content side mein na jaye, center mein ho */
+  .hero-container { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .profile-image-wrapper { width: 280px !important; height: 350px !important; }
+  
+  /* 3. Carousel Buttons: Clickable aur aligned */
+  .carousel-btn { z-index: 9999 !important; width: 40px !important; height: 40px !important; }
+  .prev-btn { left: 5px !important; }
+  .next-btn { right: 5px !important; }
+  .cert-3d-image { height: 200px !important; }
+
+  /* 4. Awards Card: Alignment fix */
+  .cert-3d-card { width: 280px !important; margin-left: -140px !important; height: 450px !important; }
+
+  /* 5. Menu/Hamburger fix */
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
 }
