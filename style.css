@@ -2651,4 +2651,27 @@ button {
         transform: none !important;
         transition: none !important;
     }
+    /* 1. Floating Card Overlap aur Height fix */
+.floating-card {
+    position: relative !important; /* Absolute se hata kar relative kiya */
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 20px auto !important;  /* Center mein lana */
+    width: 90% !important;         /* Screen ke hisaab se fit */
+    height: auto !important;       /* Height ko content ke hisaab se badhne do */
+    padding-bottom: 20px !important;
+}
+
+/* 2. Text Overflow fix (Cert aur Cards ke liye) */
+.cert-3d-card, .expertise-card {
+    height: auto !important;       /* Box text ke sath bada hoga */
+    min-height: 450px !important;
+    padding-bottom: 30px !important;
+}
+
+/* 3. Hero content gap fix */
+.hero-content {
+    padding-top: 20px !important;
+}
 }
