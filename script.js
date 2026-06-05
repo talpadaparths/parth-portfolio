@@ -197,7 +197,7 @@
 // ================================================
 // SCROLL REVEAL ANIMATION (IntersectionObserver)
 // ================================================
-(function initScrollReveal() {
+//(function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
 
   const observer = new IntersectionObserver((entries) => {
