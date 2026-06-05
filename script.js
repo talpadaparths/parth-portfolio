@@ -276,37 +276,34 @@
     const subject = document.getElementById('contact-subject').value.trim();
     const message = document.getElementById('contact-message').value.trim();
 
-    if (!name || !email || !subject || !message) {
-      shakeForm(form);
-      return;
-    }
+    // Use Fetch to send data to Formspree
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
 
-    if (!isValidEmail(email)) {
-      shakeField(document.getElementById('contact-email-input'));
-      return;
-    }
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
 
-    // Simulate sending (replace with actual API call / Formspree)
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+            if (response.ok) {
+                submitBtn.innerHTML = '<i class="bi bi-check2-circle"></i> Sent!';
+                submitBtn.style.background = 'linear-gradient(135deg, #00e5a0, #00c4cc)';
+                if (successMsg) successMsg.style.display = 'flex';
+                form.reset();
+                await sleep(3500);
+            } else {
+                throw new Error('Formspree error');
+            }
+        } catch (error) {
+            alert("Oops! Something went wrong. Please try again.");
+        }
 
-    await sleep(1400);
-
-    submitBtn.innerHTML = '<i class="bi bi-check2-circle"></i> Sent!';
-    submitBtn.style.background = 'linear-gradient(135deg, #00e5a0, #00c4cc)';
-
-    if (successMsg) {
-      successMsg.style.display = 'flex';
-    }
-
-    form.reset();
-
-    await sleep(3500);
-    submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Send Message';
-    submitBtn.style.background = '';
-    submitBtn.disabled = false;
-    if (successMsg) successMsg.style.display = 'none';
-  });
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Send Message';
+        if (successMsg) successMsg.style.display = 'none';
 
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
