@@ -1,3 +1,11 @@
+/* style.css ke top par ya root mein add karein */
+html, body {
+    overflow-x: hidden; /* Ye line mobile par side-scroll hona band kar degi */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 /* ================================================
    ROOT VARIABLES & DESIGN SYSTEM
 ================================================ */
@@ -2603,5 +2611,24 @@ button {
 
     .hero-image-wrap {
         margin-top: 20px !important;
+    }
+}
+@media (max-width: 768px) {
+    /* Padding kam karein taaki mobile par saans lene ki jagah mile */
+    .section {
+        padding: 40px 15px !important; 
+    }
+
+    /* Cert-3d-card jo screen se bahar nikal raha hai, uska margin fix karein */
+    .cert-3d-card {
+        width: 90% !important; /* Fixed 320px hata kar 90% karein */
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Container spill na kare */
+    .container {
+        width: 100% !important;
+        padding: 0 15px !important;
     }
 }
