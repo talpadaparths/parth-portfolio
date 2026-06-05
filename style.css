@@ -2475,60 +2475,68 @@ button {
     }
 }
 @media (max-width: 768px) {
-    /* 1. Reset / Base Layout Fixes */
-    .nav-links { display: none !important; }
-    .hamburger { display: flex !important; }
-    .section { padding: 40px 15px !important; }
-    .container { width: 100% !important; padding: 0 15px !important; }
+  /* 1. Navbar Fixes */
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
 
-    /* 2. Hero Section */
-    .hero-container { grid-template-columns: 1fr !important; gap: 20px !important; margin-top: 50px !important; }
-    .hero-content { padding-top: 20px !important; align-items: center !important; text-align: center; }
-    .hero-right { order: -1; margin-bottom: 20px; }
-    .profile-image-wrapper { width: 220px !important; height: 280px !important; margin: 0 auto 20px auto !important; }
-    .scroll-indicator { display: none !important; } /* Mobile par scroll indicator hide kar diya */
-    
-    /* Floating Card - Fixed Overlap */
-    .floating-card {
-        position: relative !important;
-        margin: 20px auto !important;
-        width: 95% !important;
-        height: auto !important;
-        padding: 15px !important;
-    }
+  /* 2. Global Mobile Spacing & Text Cutting Fix */
+  .section { padding: 60px 15px !important; }
+  .container { padding: 0 15px !important; width: 100% !important; overflow-x: hidden; }
+  p, h3, h4, .project-desc, .timeline-content p {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+  }
 
-    /* 3. Certificate Carousel & Expertise Cards */
-    .cert-3d-wrapper { height: auto !important; min-height: 450px !important; }
-    .cert-3d-card { 
-        width: 90% !important; 
-        left: 5% !important;
-        margin-left: 0 !important; 
-        height: auto !important; 
-        min-height: 400px !important;
-        transform: none !important;
-        opacity: 1 !important;
-        position: relative !important;
-    }
-    .cert-3d-image { height: 200px !important; }
-    .carousel-btn { z-index: 100 !important; width: 35px !important; height: 35px !important; }
-    .prev-btn { left: 2px !important; }
-    .next-btn { right: 2px !important; }
-    .expertise-grid { grid-template-columns: 1fr !important; }
+  /* 3. Hero Section - Text Upar, Image Niche (Overlap Fixed) */
+  .hero-container { grid-template-columns: 1fr; text-align: center; gap: 40px; padding-top: 20px; }
+  .hero-buttons { justify-content: center; }
+  .profile-image-wrapper { width: 280px; height: 360px; margin: 0 auto; }
+  .floating-card { 
+      position: relative; 
+      bottom: auto; right: auto; 
+      margin: -30px auto 0; 
+      width: 90%; max-width: 340px; 
+      height: auto !important; 
+  }
+  .scroll-indicator { display: none; }
 
-    /* 4. Text & Visibility Fix */
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-    }
-    
-    p, h3, h4, .project-desc, .timeline-content p {
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        hyphens: auto !important;
-        max-width: 100% !important;
-    }
+  /* 4. Journey Timeline - Single Column Line (No Alternative) */
+  .timeline::before { left: 20px !important; }
+  .timeline-item.left, .timeline-item.right { 
+      justify-content: flex-start !important; 
+      padding-left: 52px !important; 
+      padding-right: 0 !important; 
+  }
+  .timeline-item.left .timeline-content::before, 
+  .timeline-item.right .timeline-content::before { display: none !important; }
+  .timeline-dot { left: 20px !important; }
+  .timeline-content { max-width: 100% !important; }
 
-    .section-title { font-size: 1.6rem !important; }
-    .project-name { font-size: 1rem !important; }
+  /* 5. Projects & Layouts (Too Long Fixed) */
+  .project-layout { grid-template-columns: 1fr !important; gap: 20px; }
+  .project-mockup { display: none !important; } /* Mobile par mockup hide kiya taki lamba na ho */
+  .expertise-grid, .connect-grid, .footer-container { grid-template-columns: 1fr !important; gap: 30px; }
+  .skills-grid, .form-row, .attend-stats { grid-template-columns: 1fr !important; }
+
+  /* 6. Awards Carousel (Wapas original setting par) */
+  .cert-3d-card { 
+      width: 320px !important; 
+      margin-left: -160px !important; 
+      height: auto !important; 
+      min-height: 480px !important; 
+  }
+  .cert-3d-card.prev { transform: scale(0.8) translateX(-40%) rotateY(20deg); opacity: 0;}
+  .cert-3d-card.next { transform: scale(0.8) translateX(40%) rotateY(-20deg); opacity: 0;}
+  .preview-btn { opacity: 1 !important; }
+
+  /* 7. Element Missing Fix (Ye content dikhayega) */
+  .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+  }
+  
+  /* Font size management for mobile */
+  .section-title { font-size: 2rem !important; }
 }
