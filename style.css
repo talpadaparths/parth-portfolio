@@ -2614,46 +2614,41 @@ button {
     }
 }
 @media (max-width: 768px) {
-    /* Padding kam karein taaki mobile par saans lene ki jagah mile */
-    .section {
-        padding: 40px 15px !important; 
-    }
+    /* 1. Navbar: Logo aur Hamburger fix */
+    .nav-links { display: none !important; }
+    .hamburger { display: flex !important; }
+    .logo-text { display: block !important; font-size: 0.75rem !important; }
 
-    /* Cert-3d-card jo screen se bahar nikal raha hai, uska margin fix karein */
-    .cert-3d-card {
-        width: 90% !important; /* Fixed 320px hata kar 90% karein */
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
+    /* 2. Hero Section: Content Overlap Fix */
+    .hero-container { grid-template-columns: 1fr !important; gap: 20px !important; margin-top: 50px !important; }
+    .profile-image-wrapper { width: 250px !important; height: 300px !important; margin-bottom: 20px !important; }
+    .scroll-indicator { margin-top: 10px !important; display: flex !important; }
 
-    /* Container spill na kare */
-    .container {
-        width: 100% !important;
-        padding: 0 15px !important;
+    /* 3. Certificate Carousel: Center Alignment Fix */
+    .cert-3d-wrapper { height: 480px !important; }
+    .cert-3d-card { 
+        width: 85% !important; 
+        left: 7.5% !important;  /* Center mein lane ke liye */
+        margin-left: 0 !important; 
+        height: 420px !important; 
+        transform: none !important; /* Mobile par 3D tilt band */
+        opacity: 1 !important;
     }
-      /* Yahan naya code add karo (Mobile ke liye visibility fix) */
+    .cert-3d-image { height: 200px !important; }
+    
+    /* Carousel Buttons: Inhein proper position do */
+    .carousel-btn { z-index: 100 !important; width: 35px !important; height: 35px !important; }
+    .prev-btn { left: 2px !important; }
+    .next-btn { right: 2px !important; }
+
+    /* 4. Padding aur Container */
+    .section { padding: 40px 15px !important; }
+    .container { width: 100% !important; padding: 0 15px !important; }
+    
+    /* 5. Visibility Fix (Tumhara 'reveal' wala fix) */
     .reveal {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
     }
-/* 1. Navbar Name fix: P logo ke paas naam dikhe */
-  .logo-text { display: block !important; font-size: 0.7rem !important; }
-  
-  /* 2. Hero Section: Content side mein na jaye, center mein ho */
-  .hero-container { grid-template-columns: 1fr !important; gap: 20px !important; }
-  .profile-image-wrapper { width: 280px !important; height: 350px !important; }
-  
-  /* 3. Carousel Buttons: Clickable aur aligned */
-  .carousel-btn { z-index: 9999 !important; width: 40px !important; height: 40px !important; }
-  .prev-btn { left: 5px !important; }
-  .next-btn { right: 5px !important; }
-  .cert-3d-image { height: 200px !important; }
-
-  /* 4. Awards Card: Alignment fix */
-  .cert-3d-card { width: 280px !important; margin-left: -140px !important; height: 450px !important; }
-
-  /* 5. Menu/Hamburger fix */
-  .nav-links { display: none !important; }
-  .hamburger { display: flex !important; }
 }
