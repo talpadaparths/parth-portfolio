@@ -2631,4 +2631,10 @@ button {
         width: 100% !important;
         padding: 0 15px !important;
     }
+      /* Yahan naya code add karo (Mobile ke liye visibility fix) */
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }
