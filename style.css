@@ -2570,3 +2570,16 @@ button {
   /* Font size management for mobile */
   .section-title { font-size: 2rem !important; }
 }
+
+/* Mobile Navbar Logo Text Fix */
+@media (max-width: 768px) {
+    .nav-logo .logo-text {
+        display: inline-block !important;
+        font-size: 14px !important; /* Font thoda chhota rakha hai taaki fit ho jaye */
+        max-width: 160px; /* Text ko menu ke upar chadhne se rokne ke liye */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Agar screen bohot chhoti hui toh aage "..." lag jayega */
+    }
+}
+2
