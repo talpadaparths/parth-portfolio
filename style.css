@@ -2636,15 +2636,4 @@ button {
     margin-top: 0 !important; 
 }
 
-/* ================================================
-   FIX 2: STICKY SECTION HEADERS (Ab heading nahi chupega)
-================================================ */
-.section-header {
-    position: sticky !important;
-    top: var(--nav-height) !important;
-    z-index: 90 !important;
-    background: var(--bg-primary); /* Navbar jaisa pichla content nahi dikhega */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: -20px;
-}
+
