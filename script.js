@@ -256,11 +256,81 @@
   });
 })();
 
-
 // ================================================
-// CONTACT FORM HANDLER
+// CONTACT FORM HANDLER (AJAX & Dynamic UI)
 // ================================================
+(function initContactForm() {
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const serviceSelect = document.getElementById('contact-subject');
 
+  if (!form || !submitBtn) return;
+
+  // 1. Dropdown select karne par button ka text badlega
+  if (serviceSelect) {
+    serviceSelect.addEventListener('change', (e) => {
+      const selectedVal = e.target.value;
+      if (selectedVal.includes('Starter')) {
+        submitBtn.innerHTML = '<i class="bi bi-rocket-takeoff-fill"></i> Request Starter Portfolio';
+      } else if (selectedVal.includes('Academic')) {
+        submitBtn.innerHTML = '<i class="bi bi-bank"></i> Request Academic Brand';
+      } else if (selectedVal.includes('Local')) {
+        submitBtn.innerHTML = '<i class="bi bi-shop"></i> Request Business Hub';
+      } else {
+        submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Send Message';
+      }
+    });
+  }
+
+  // 2. Seamless AJAX Submission (Page redirect nahi hoga)
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); 
+    
+    const originalBtnText = submitBtn.innerHTML;
+    
+    // Loading State
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Processing...';
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.cursor = 'not-allowed';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Success State
+        submitBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Request Received';
+        submitBtn.style.background = '#00e5a0'; 
+        submitBtn.style.color = '#000';
+        form.reset();
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.style.background = ''; 
+          submitBtn.style.color = '';
+          submitBtn.style.cursor = 'pointer';
+          submitBtn.style.opacity = '1';
+        }, 4000);
+      } else {
+        throw new Error('Network response failed');
+      }
+    } catch (error) {
+      // Error State
+      submitBtn.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> Error. Try Again.';
+      submitBtn.style.background = '#ff5f57'; 
+      
+      setTimeout(() => {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.style.background = '';
+        submitBtn.style.cursor = 'pointer';
+        submitBtn.style.opacity = '1';
+      }, 3000);
+    }
+  });
+})();
 
 // ================================================
 // SMOOTH SCROLL FOR ALL NAV/ANCHOR LINKS
