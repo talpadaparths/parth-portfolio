@@ -2582,4 +2582,46 @@ button {
         text-overflow: ellipsis; /* Agar screen bohot chhoti hui toh aage "..." lag jayega */
     }
 }
-2
+
+/* ================================================
+   B2B CONTACT DROPDOWN PATCH
+================================================ */
+.form-input-wrap select {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  padding: 13px 14px 13px 40px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+  appearance: none; /* Kills the default Windows/iOS dropdown styling */
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.form-input-wrap select:focus {
+  border-color: rgba(200,80,255,0.4);
+  box-shadow: 0 0 20px rgba(200,80,255,0.1);
+}
+
+/* Styling the dropdown options so they don't look like default white boxes */
+.form-input-wrap select option {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+/* Ensuring the chevron icon sits perfectly on the right */
+.form-input-wrap .bi-chevron-down {
+  position: absolute;
+  right: 14px;
+  left: auto;
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 2;
+}
+
