@@ -2863,3 +2863,35 @@ button {
 .custom-option:hover {
    background: rgba(91, 108, 255, 0.1) !important;
 }
+
+/* ================================================
+   NUCLEAR FIX: DROPDOWN VISIBILITY & MATCHING
+================================================ */
+div.form-input-wrap div.custom-select-trigger,
+div.custom-select-trigger {
+    background-color: #ffffff !important; /* Forces solid white background */
+    border: 1px solid rgba(0, 0, 0, 0.15) !important; /* Forces visible border */
+    border-radius: 8px !important;
+    height: 52px !important;
+    padding: 0 14px 0 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+}
+
+span#custom-select-text {
+    color: #4a4a68 !important; /* Forces dark slate text */
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+div.custom-select-trigger i.bi-layers,
+div.custom-select-trigger i.bi-chevron-down {
+    color: #4a4a68 !important; /* Forces dark icons */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
