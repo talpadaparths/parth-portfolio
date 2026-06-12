@@ -2644,4 +2644,46 @@ button {
     margin-top: 0 !important; 
 }
 
+/* ================================================
+   LIGHT THEME OVERRIDES (Navbar, Forms, Dropdown)
+================================================ */
+/* Navbar Light Mode */
+.navbar {
+  background: rgba(244, 247, 246, 0.7) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
+}
+.mobile-menu {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Form Inputs & Custom Dropdown Light Mode */
+.custom-select-trigger, 
+.form-input-wrap input, 
+.form-input-wrap textarea {
+   background: rgba(255, 255, 255, 0.7) !important;
+   border: 1px solid rgba(0, 0, 0, 0.1) !important;
+   color: var(--text-primary) !important;
+}
+.custom-options {
+   background: #ffffff !important;
+   border: 1px solid rgba(0, 0, 0, 0.1) !important;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+.custom-option {
+   color: var(--text-primary) !important;
+}
+.custom-option:hover {
+   background: rgba(91, 108, 255, 0.1) !important;
+}
+
+/* Ensure placeholder text is visible in light mode */
+.form-input-wrap input::placeholder,
+.form-input-wrap textarea::placeholder {
+  color: var(--text-muted) !important;
+}
 
