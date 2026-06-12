@@ -2747,3 +2747,30 @@ button {
 }
 .mockup-title, .sidebar-item { color: var(--text-secondary) !important; }
 
+/* ================================================
+   FIX: INVISIBLE ELEMENTS & HARDCODED CARDS
+================================================ */
+
+/* 1. Fix Certificate Next/Prev Carousel Buttons */
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.7) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+.carousel-btn:hover {
+    color: #ffffff !important; /* Turns white when gradient background activates */
+}
+
+/* 2. Fix Contact Form Dropdown Text */
+#custom-select-text, .custom-select-trigger i {
+    color: var(--text-primary) !important;
+}
+
+/* 3. Force Glassmorphism on Hardcoded Cards (Vision, Certs) */
+.floating-card, .cert-3d-card, .glass-card-inner {
+    background: rgba(255, 255, 255, 0.35) !important; /* Low opacity = proper glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
