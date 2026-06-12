@@ -2865,33 +2865,53 @@ button {
 }
 
 /* ================================================
-   NUCLEAR FIX: DROPDOWN VISIBILITY & MATCHING
+   THE REAL FIX: NATIVE SELECT STYLING FOR LIGHT THEME
 ================================================ */
-div.form-input-wrap div.custom-select-trigger,
-div.custom-select-trigger {
-    background-color: #ffffff !important; /* Forces solid white background */
-    border: 1px solid rgba(0, 0, 0, 0.15) !important; /* Forces visible border */
-    border-radius: 8px !important;
-    height: 52px !important;
-    padding: 0 14px 0 40px !important;
-    display: flex !important;
-    align-items: center !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    box-shadow: none !important;
-}
-
-span#custom-select-text {
-    color: #4a4a68 !important; /* Forces dark slate text */
+.form-input-wrap select {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 13px 14px 13px 40px !important; 
+    height: 52px !important; 
+    box-sizing: border-box !important;
+    width: 100% !important;
+    color: #11111a !important; /* Dark text for visibility */
     font-size: 0.9rem !important;
-    font-weight: 500 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    font-family: var(--font-body) !important;
+    
+    /* This removes the ugly default mobile styling */
+    appearance: none !important; 
+    -webkit-appearance: none !important;
+    
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.02) !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1 !important;
 }
 
-div.custom-select-trigger i.bi-layers,
-div.custom-select-trigger i.bi-chevron-down {
-    color: #4a4a68 !important; /* Forces dark icons */
-    opacity: 1 !important;
-    visibility: visible !important;
+/* Make sure the "Select a Service Tier..." placeholder looks faded */
+.form-input-wrap select:invalid,
+.form-input-wrap select option[value=""] {
+    color: #71718a !important;
 }
+
+/* Style the popup options */
+.form-input-wrap select option {
+    background: #ffffff !important;
+    color: #11111a !important;
+}
+
+/* Force icons to stay grey, centered, and ABOVE the select box */
+.form-input-wrap i.bi-layers,
+.form-input-wrap i.bi-chevron-down {
+    color: #71718a !important;
+    z-index: 2 !important; /* Keeps icon visible */
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    pointer-events: none !important; /* Lets clicks pass through to the select box */
+}
+
+.form-input-wrap i.bi-layers { left: 14px !important; }
+.form-input-wrap i.bi-chevron-down { right: 14px !important; left: auto !important; }
+
