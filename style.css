@@ -2687,3 +2687,84 @@ button {
   color: var(--text-muted) !important;
 }
 
+/* ================================================
+   LIGHT THEME COMPLETION PATCH
+   Fixes: Navbar, Buttons, Vision Card, Certs, Footer
+================================================ */
+
+/* 1) Mobile Menu & Hamburger Icon Fix */
+.hamburger span { 
+    background: var(--text-primary) !important; 
+}
+.mobile-menu {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.mobile-link { 
+    color: var(--text-secondary) !important; 
+}
+.mobile-link:hover { 
+    color: var(--accent-blue) !important; 
+    background: rgba(0, 0, 0, 0.05) !important; 
+}
+
+/* 2) "Request a Build" Button (.btn-outline) Fix */
+.btn-outline {
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    background: transparent !important;
+}
+.btn-outline:hover {
+    border-color: var(--accent-purple) !important;
+    color: var(--accent-purple) !important;
+    background: rgba(200, 80, 255, 0.08) !important;
+}
+
+/* 3) Career Vision Floating Card Fix */
+.floating-card {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08) !important;
+}
+.floating-card h4 { color: var(--text-primary) !important; }
+.floating-card p { color: var(--text-secondary) !important; }
+
+/* 4) Certificate 3D Cards Fix */
+.cert-3d-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+.cert-3d-content h3 { color: var(--text-primary) !important; }
+.cert-3d-content p { color: var(--text-secondary) !important; }
+.preview-btn {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--accent-blue) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 5) Footer Section Fix */
+.footer {
+    background: rgba(240, 244, 248, 0.8) !important; /* Soft light slate */
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+.footer-links h4, .footer-contact h4 { 
+    color: var(--text-primary) !important; 
+}
+.footer-tagline, .footer-contact p, .footer-contact-item, .footer-links a, .footer-bottom p {
+    color: var(--text-secondary) !important;
+}
+.footer-logo .logo-text { color: var(--text-primary) !important; }
+.footer-contact-item i { color: var(--accent-purple) !important; }
+
+/* Bonus Fix: Project Mockup Windows (Taki wo bhi light theme se match karein) */
+.mockup-window {
+    background: #ffffff !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+}
+.mockup-sidebar, .mockup-titlebar {
+    border-color: rgba(0,0,0,0.05) !important;
+    background: rgba(0,0,0,0.02) !important;
+}
+.mockup-title, .sidebar-item { color: var(--text-secondary) !important; }
+
