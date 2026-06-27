@@ -1,14 +1,6 @@
-    /* =================================================
-   PARTH TALPADA - PORTFOLIO JAVASCRIPT
-   Handles: Canvas BG, Navbar, Scroll Reveal,
-   Timeline animations, Form submission
-================================================= */
-
 'use strict';
 
-// ================================================
-// ANIMATED PARTICLE CANVAS BACKGROUND
-// ================================================
+// Initializes the animated particle background on the canvas
 (function initCanvas() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
@@ -41,7 +33,6 @@
       this.vy = randomBetween(-0.35, 0.35);
       this.radius = randomBetween(1, 2.2);
       this.alpha = randomBetween(0.2, 0.7);
-      // Alternate between blue and purple
       const useBlue = Math.random() > 0.5;
       this.color = useBlue
         ? `rgba(91, 108, 255, ${this.alpha})`
@@ -52,7 +43,6 @@
       this.x += this.vx;
       this.y += this.vy;
 
-      // Mouse repulsion
       const dx = this.x - mouseX;
       const dy = this.y - mouseY;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -62,7 +52,6 @@
         this.y += dy * force * 0.03;
       }
 
-      // Wrap
       if (this.x < 0) this.x = width;
       if (this.x > width) this.x = 0;
       if (this.y < 0) this.y = height;
@@ -123,10 +112,7 @@
   animate();
 })();
 
-
-// ================================================
-// NAVBAR - Scroll & Active Link
-// ================================================
+// Handles navbar background shift on scroll and active section highlighting
 (function initNavbar() {
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -135,7 +121,6 @@
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  // Scroll class
   function onScroll() {
     if (window.scrollY > 40) {
       navbar.classList.add('scrolled');
@@ -145,7 +130,6 @@
     highlightActiveSection();
   }
 
-  // Highlight nav link for current section
   function highlightActiveSection() {
     let current = '';
     sections.forEach(section => {
@@ -166,7 +150,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Hamburger toggle
   hamburger.addEventListener('click', () => {
     const isOpen = hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open', isOpen);
@@ -174,7 +157,6 @@
     mobileMenu.setAttribute('aria-hidden', (!isOpen).toString());
   });
 
-  // Close mobile menu on link click
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
@@ -184,7 +166,6 @@
     });
   });
 
-  // Close on outside click
   document.addEventListener('click', e => {
     if (!navbar.contains(e.target)) {
       hamburger.classList.remove('open');
@@ -193,10 +174,7 @@
   });
 })();
 
-
-// ================================================
-// SCROLL REVEAL ANIMATION (IntersectionObserver)
-// ================================================
+// Triggers CSS transitions when elements enter the viewport
 (function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
 
@@ -214,9 +192,8 @@
 
   reveals.forEach(el => observer.observe(el));
 
-  // Also reveal expertise cards and other major cards on scroll
   const cards = document.querySelectorAll(
-    '.expertise-card, .combine-banner, .project-card, .stepping-stones, .journey-cta, .contact-info, .contact-form-wrap, .social-section'
+    '.expertise-card, .artifact-accordion, .glass-card, .contact-info'
   );
 
   const cardObserver = new IntersectionObserver((entries) => {
@@ -239,10 +216,7 @@
   });
 })();
 
-
-// ================================================
-// BACK TO TOP BUTTON
-// ================================================
+// Manages visibility and scroll action of the Back to Top button
 (function initBackToTop() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
@@ -256,85 +230,7 @@
   });
 })();
 
-// ================================================
-// CONTACT FORM HANDLER (AJAX & Dynamic UI)
-// ================================================
-(function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const serviceSelect = document.getElementById('contact-subject');
-
-  if (!form || !submitBtn) return;
-
-  // 1. Dropdown select karne par button ka text badlega
-  if (serviceSelect) {
-    serviceSelect.addEventListener('change', (e) => {
-      const selectedVal = e.target.value;
-      if (selectedVal.includes('Starter')) {
-        submitBtn.innerHTML = '<i class="bi bi-rocket-takeoff-fill"></i> Request Starter Portfolio';
-      } else if (selectedVal.includes('Academic')) {
-        submitBtn.innerHTML = '<i class="bi bi-bank"></i> Request Academic Brand';
-      } else if (selectedVal.includes('Local')) {
-        submitBtn.innerHTML = '<i class="bi bi-shop"></i> Request Business Hub';
-      } else {
-        submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Send Message';
-      }
-    });
-  }
-
-  // 2. Seamless AJAX Submission (Page redirect nahi hoga)
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); 
-    
-    const originalBtnText = submitBtn.innerHTML;
-    
-    // Loading State
-    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Processing...';
-    submitBtn.style.opacity = '0.7';
-    submitBtn.style.cursor = 'not-allowed';
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        // Success State
-        submitBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Request Received';
-        submitBtn.style.background = '#00e5a0'; 
-        submitBtn.style.color = '#000';
-        form.reset();
-        
-        setTimeout(() => {
-          submitBtn.innerHTML = originalBtnText;
-          submitBtn.style.background = ''; 
-          submitBtn.style.color = '';
-          submitBtn.style.cursor = 'pointer';
-          submitBtn.style.opacity = '1';
-        }, 4000);
-      } else {
-        throw new Error('Network response failed');
-      }
-    } catch (error) {
-      // Error State
-      submitBtn.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> Error. Try Again.';
-      submitBtn.style.background = '#ff5f57'; 
-      
-      setTimeout(() => {
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.style.background = '';
-        submitBtn.style.cursor = 'pointer';
-        submitBtn.style.opacity = '1';
-      }, 3000);
-    }
-  });
-})();
-
-// ================================================
-// SMOOTH SCROLL FOR ALL NAV/ANCHOR LINKS
-// ================================================
+// Intercepts anchor links to provide smooth scrolling with navbar offset
 (function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -349,41 +245,46 @@
   });
 })();
 
+// Executes dynamic max-height calculations for Section 3 accordion expansion
+(function initKnowledgeArtifacts() {
+  const artifacts = document.querySelectorAll('.artifact-accordion');
+  if (!artifacts.length) return;
 
-// ================================================
-// SKILL CARDS STAGGER ANIMATION
-// ================================================
-(function initSkillCards() {
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const cards = entry.target.querySelectorAll('.skill-card, .focus-item, .tool-badge');
-        cards.forEach((card, i) => {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(16px)';
-          setTimeout(() => {
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 100 + i * 60);
-        });
-        skillObserver.unobserve(entry.target);
+  artifacts.forEach(artifact => {
+    const trigger = artifact.querySelector('.artifact-trigger');
+    const content = artifact.querySelector('.artifact-content');
+
+    if (!trigger || !content) return;
+
+    trigger.addEventListener('click', () => {
+      const isCurrentlyOpen = artifact.classList.contains('is-open');
+
+      artifacts.forEach(item => {
+        item.classList.remove('is-open');
+        const itemContent = item.querySelector('.artifact-content');
+        if (itemContent) itemContent.style.maxHeight = null;
+      });
+
+      if (!isCurrentlyOpen) {
+        artifact.classList.add('is-open');
+        content.style.maxHeight = content.scrollHeight + "px";
+        
+        setTimeout(() => {
+          const rect = artifact.getBoundingClientRect();
+          if (rect.bottom > window.innerHeight) {
+            window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
+          }
+        }, 350);
       }
     });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.expertise-card').forEach(card => skillObserver.observe(card));
+  });
 })();
 
-
-// ================================================
-// TYPING EFFECT (Hero Heading)
-// ================================================
+// Animates the main hero heading text on initial load
 (function initTypingEffect() {
   const headingEl = document.querySelector('.hero-heading');
   if (!headingEl) return;
 
-  // Already styled with HTML, just add entrance animation
   headingEl.style.opacity = '0';
   headingEl.style.transform = 'translateY(24px)';
 
@@ -394,10 +295,7 @@
   }, 200);
 })();
 
-
-// ================================================
-// TIMELINE ITEMS STAGGER ON SCROLL
-// ================================================
+// Staggers the entrance animation of roadmap timeline nodes
 (function initTimeline() {
   const timelineItems = document.querySelectorAll('.timeline-item');
 
@@ -417,28 +315,17 @@
     observer.observe(item);
   });
 
-  // Augment IntersectionObserver callback to handle in-view
   const styleSheet = document.createElement('style');
   styleSheet.textContent = `
     .timeline-item.in-view {
       opacity: 1 !important;
       transform: translateY(0) !important;
     }
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-8px); }
-      40% { transform: translateX(8px); }
-      60% { transform: translateX(-5px); }
-      80% { transform: translateX(5px); }
-    }
   `;
   document.head.appendChild(styleSheet);
 })();
 
-
-// ================================================
-// GLOWING CURSOR TRAIL (Subtle)
-// ================================================
+// Generates a subtle gradient radial tracking the user's cursor
 (function initCursorGlow() {
   const trail = document.createElement('div');
   trail.id = 'cursor-trail';
@@ -462,10 +349,7 @@
   }, { passive: true });
 })();
 
-
-// ================================================
-// NAV LOGO HOVER ANIMATION
-// ================================================
+// Adds hover rotation to the navbar logo graphic
 (function initLogoAnimation() {
   const logo = document.querySelector('.logo-icon');
   if (!logo) return;
@@ -480,56 +364,10 @@
   });
 })();
 
-
-// ================================================
-// STAT COUNTER ANIMATION (Attendance mockup)
-// ================================================
-(function initCounters() {
-  const statNums = document.querySelectorAll('.stat-num');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const raw = el.textContent;
-        const isPercent = raw.includes('%');
-        const target = parseFloat(raw.replace('%', ''));
-
-        if (isNaN(target)) return;
-
-        let current = 0;
-        const duration = 1200;
-        const steps = 40;
-        const increment = target / steps;
-        const stepTime = duration / steps;
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
-          el.textContent = isPercent
-            ? current.toFixed(1) + '%'
-            : Math.round(current).toString();
-        }, stepTime);
-
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  statNums.forEach(el => observer.observe(el));
-})();
-
-
-// ================================================
-// ACTIVE SECTION INDICATOR DOT (Section transitions)
-// ================================================
+// Injects a CSS gradient separator at the top of designated sections
 (function initSectionIndicator() {
   const sections = document.querySelectorAll('section[id]');
 
-  // Add subtle gradient line at top of each section for visual flow
   sections.forEach(section => {
     if (section.id === 'home') return;
     const line = document.createElement('div');
@@ -546,7 +384,7 @@
   });
 })();
 
-// ========== 3D INFINITE CAROUSEL LOGIC ==========
+// Handles 3D transform calculations and infinite rotation for the validation slider
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.cert-3d-card');
     const prevBtn = document.getElementById('cert-prev');
@@ -558,12 +396,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
 
     function updateCarousel() {
-        // Sabse pehle sabhi classes hata do
         cards.forEach(card => {
             card.classList.remove('active', 'prev', 'next');
         });
 
-        // Nayi classes assign karo math module (%) ka use karke taaki infinite rahe
         const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
         const nextIndex = (currentIndex + 1) % cards.length;
 
@@ -572,7 +408,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cards[nextIndex].classList.add('next');
     }
 
-    // Button Clicks
     nextBtn.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % cards.length;
         updateCarousel();
@@ -583,8 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     });
 
-    // Side Cards par click karne par bhi ghoomega
-    cards.forEach((card, index) => {
+    cards.forEach((card) => {
         card.addEventListener('click', () => {
             if(card.classList.contains('prev')) {
                 prevBtn.click();
@@ -594,7 +428,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Touch / Swipe Support for Mobile
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -608,31 +441,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {passive: true});
 
     function handleSwipe() {
-        if (touchEndX < touchStartX - 50) nextBtn.click(); // Swipe Left -> Next
-        if (touchEndX > touchStartX + 50) prevBtn.click(); // Swipe Right -> Prev
+        if (touchEndX < touchStartX - 50) nextBtn.click();
+        if (touchEndX > touchStartX + 50) prevBtn.click();
     }
-  // Image Preview Modal Logic
+
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.getElementById("close-modal");
     const previewBtns = document.querySelectorAll('.preview-btn');
 
-    // Open Modal
     previewBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevents carousel from sliding when clicking eye
+            e.stopPropagation();
             const imgSrc = btn.getAttribute('data-img');
             modalImg.src = imgSrc;
             modal.classList.add('show');
         });
     });
 
-    // Close Modal on X click
     closeBtn.addEventListener('click', () => {
         modal.classList.remove('show');
     });
 
-    // Close Modal on background click
     modal.addEventListener('click', (e) => {
         if(e.target === modal) {
             modal.classList.remove('show');
