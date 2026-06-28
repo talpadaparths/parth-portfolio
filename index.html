@@ -9,17 +9,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-
-  <link rel="stylesheet" href="style.css?v=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- Background rendering nodes -->
   <canvas id="bg-canvas"></canvas>
   <div class="bg-overlay"></div>
 
+  <!-- Header navigation system -->
   <nav id="navbar" class="navbar" role="navigation">
     <div class="nav-container">
       <a href="#home" class="nav-logo" id="nav-logo-link">
@@ -39,6 +39,7 @@
       </button>
     </div>
     
+    <!-- Mobile navigation overlay -->
     <div class="mobile-menu" id="mobile-menu" role="menu" aria-hidden="true">
       <a href="#home" class="mobile-link" role="menuitem">Home</a>
       <a href="#evidence" class="mobile-link" role="menuitem">Evidence</a>
@@ -49,6 +50,7 @@
     </div>
   </nav>
 
+  <!-- Hero viewport structure -->
   <section id="home" class="hero-section">
     <div class="shape shape-torus" aria-hidden="true"></div>
     <div class="shape shape-cube" aria-hidden="true"></div>
@@ -79,9 +81,7 @@
 
         <div class="scroll-indicator">
           <span>SCROLL DOWN</span>
-          <div class="scroll-mouse">
-            <div class="scroll-dot"></div>
-          </div>
+          <div class="scroll-mouse"><div class="scroll-dot"></div></div>
           <i class="bi bi-arrow-down"></i>
         </div>
       </div>
@@ -95,8 +95,13 @@
     </div>
   </section>
 
-  <!-- Technical Evidence: Project Portfolio -->
+  <!-- Section 1: Technical Evidence (Verification grids) -->
   <section id="evidence" class="section expertise-section">
+    <div class="floating-shapes-sm" aria-hidden="true">
+      <div class="sm-shape sm-torus"></div>
+      <div class="sm-shape sm-cube"></div>
+      <div class="sm-shape sm-sphere"></div>
+    </div>
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Technical <span class="gradient-text">Evidence</span></h2>
@@ -136,17 +141,32 @@
             <i class="bi bi-github"></i> View Logic
           </a>
         </div>
-        <!-- Enterprise Execution Card remains same -->
+
+        <div class="expertise-card glass-card" style="grid-column: 1 / -1;">
+          <div class="expertise-card-header">
+            <div class="expertise-icon" style="background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); color: var(--accent-green);">
+              <i class="bi bi-building"></i>
+            </div>
+            <div>
+              <h3 class="expertise-title" style="background: linear-gradient(90deg, #00e5a0, #00c4cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Enterprise Execution</h3>
+              <p class="expertise-subtitle">Technical Consultant (Intern) @ Kalpene Global</p>
+            </div>
+          </div>
+          <p class="expertise-desc" style="margin-bottom: 0;">
+            Executing technical consulting protocols, focusing on system automation, user interface logic mapping, and structured front-end development within a corporate tech environment.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Knowledge Artifacts: Accordion UI -->
+  <!-- Section 2: Knowledge Artifacts (Interactive disclosure widgets) -->
   <section id="artifacts" class="section initiatives-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Knowledge <span class="gradient-text">Artifacts</span></h2>
         <div class="title-line"><span></span><i class="bi bi-diagram-3"></i><span></span></div>
+        <p class="section-subtitle">Systematic breakdowns of domain logic and active clinical data research prior to technical execution.</p>
       </div>
 
       <div class="artifacts-stack" style="display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto;">
@@ -162,7 +182,7 @@
             </div>
             <i class="bi bi-chevron-down artifact-chevron"></i>
           </button>
-          <div id="artifact-content-1" class="artifact-content"><div class="artifact-content-inner"><p>Mapping structural transition of raw clinical data from Case Report Forms (CRFs) to Statistical Analysis Plans (SAPs).</p></div></div>
+          <div id="artifact-content-1" class="artifact-content"><div class="artifact-content-inner"><p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">Mapping structural transition of raw clinical data from Case Report Forms (CRFs) to Statistical Analysis Plans (SAPs), documenting variables and data extraction protocols.</p></div></div>
         </div>
 
         <div class="artifact-accordion glass-card">
@@ -176,128 +196,33 @@
             </div>
             <i class="bi bi-chevron-down artifact-chevron"></i>
           </button>
-          <div id="artifact-content-2" class="artifact-content"><div class="artifact-content-inner"><p>Developing concept maps to differentiate structural requirements of SDTM compliance versus ADaM derivations.</p></div></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SAS Roadmap Timeline -->
-  <section id="roadmap" class="section journey-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">2026–2027 <span class="gradient-text">SAS Roadmap</span></h2>
-        <div class="title-line"><span></span><i class="bi bi-map"></i><span></span></div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item left reveal">
-          <div class="timeline-content glass-card">
-            <!-- ATS Semantic Time Tag -->
-            <time class="timeline-year" datetime="2026-07">Sequence 1</time>
-            <div class="timeline-icon-wrap"><i class="bi bi-terminal"></i></div>
-            <h3>Core Syntax & Extraction</h3>
-            <p>Focus: Base SAS, Advanced SAS, PROC SQL, and Macro Processing.</p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-item right reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
-            <time class="timeline-year" datetime="2026-11">Sequence 2</time>
-            <div class="timeline-icon-wrap"><i class="bi bi-diagram-2"></i></div>
-            <h3>Standardized Mapping</h3>
-            <p>Applying CDISC Pilot Project / PhUSE datasets. Executing SDTM mappings based on Implementation Guides.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="artifacts" class="section initiatives-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Knowledge <span class="gradient-text">Artifacts</span></h2>
-        <div class="title-line">
-          <span></span><i class="bi bi-diagram-3"></i><span></span>
-        </div>
-        <p class="section-subtitle">Systematic breakdowns of domain logic and active clinical data research prior to technical execution.</p>
-      </div>
-
-      <div class="artifacts-stack" style="display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto;">
-        
-        <div class="artifact-accordion glass-card">
-          <div class="artifact-trigger">
-            <div class="artifact-title-wrap">
-              <div class="artifact-icon"><i class="bi bi-file-earmark-medical"></i></div>
-              <div>
-                <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px;">Clinical Trial Lifecycle</h3>
-                <p style="font-size: 0.85rem; color: var(--text-secondary);">Protocol to SAP Workflow Analysis</p>
-              </div>
-            </div>
-            <i class="bi bi-chevron-down artifact-chevron"></i>
-          </div>
-          <div class="artifact-content">
-            <div class="artifact-content-inner">
-              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
-                Currently mapping the structural transition of raw clinical data from Case Report Forms (CRFs) to Statistical Analysis Plans (SAPs), documenting variables and data extraction protocols.
-              </p>
-            </div>
-          </div>
+          <div id="artifact-content-2" class="artifact-content"><div class="artifact-content-inner"><p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">Developing concept maps to differentiate structural requirements of Study Data Tabulation Model (SDTM) compliance versus Analysis Data Model (ADaM) derivations.</p></div></div>
         </div>
 
         <div class="artifact-accordion glass-card">
-          <div class="artifact-trigger">
-            <div class="artifact-title-wrap">
-              <div class="artifact-icon"><i class="bi bi-database-check"></i></div>
-              <div>
-                <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px;">CDISC Standards Foundations</h3>
-                <p style="font-size: 0.85rem; color: var(--text-secondary);">SDTM & ADaM Data Structures</p>
-              </div>
-            </div>
-            <i class="bi bi-chevron-down artifact-chevron"></i>
-          </div>
-          <div class="artifact-content">
-            <div class="artifact-content-inner">
-              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
-                Breaking down the CDISC Implementation Guides. Developing concept maps to differentiate the structural requirements of Study Data Tabulation Model (SDTM) compliance versus Analysis Data Model (ADaM) derivations.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="artifact-accordion glass-card">
-          <div class="artifact-trigger">
+          <button class="artifact-trigger" aria-expanded="false" aria-controls="artifact-content-3">
             <div class="artifact-title-wrap">
               <div class="artifact-icon"><i class="bi bi-shield-check"></i></div>
-              <div>
+              <div style="text-align: left;">
                 <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px;">Data Integrity & GCP</h3>
                 <p style="font-size: 0.85rem; color: var(--text-secondary);">Good Clinical Practice Guidelines</p>
               </div>
             </div>
             <i class="bi bi-chevron-down artifact-chevron"></i>
-          </div>
-          <div class="artifact-content">
-            <div class="artifact-content-inner">
-              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
-                Analyzing Good Clinical Practice (GCP) requirements for data reproducibility. Constructing decision trees to ensure regulatory compliance during clinical dataset submissions.
-              </p>
-            </div>
-          </div>
+          </button>
+          <div id="artifact-content-3" class="artifact-content"><div class="artifact-content-inner"><p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">Analyzing Good Clinical Practice (GCP) requirements for data reproducibility. Constructing decision trees to ensure regulatory compliance during clinical dataset submissions.</p></div></div>
         </div>
 
       </div>
     </div>
   </section>
 
+  <!-- Section 3: Sequential Roadmap (Parser friendly tracking nodes) -->
   <section id="roadmap" class="section journey-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">2026–2027 <span class="gradient-text">SAS Roadmap</span></h2>
-        <div class="title-line">
-          <span></span><i class="bi bi-map"></i><span></span>
-        </div>
+        <div class="title-line"><span></span><i class="bi bi-map"></i><span></span></div>
         <p class="section-subtitle">A strict, sequential execution pipeline targeting Base/Advanced SAS programming and CDISC implementation.</p>
       </div>
 
@@ -305,7 +230,7 @@
         
         <div class="timeline-item left reveal" role="listitem">
           <div class="timeline-content glass-card">
-            <span class="timeline-year">Sequence 1</span>
+            <time class="timeline-year" datetime="2026-07">Sequence 1</time>
             <div class="timeline-icon-wrap"><i class="bi bi-terminal"></i></div>
             <h3>Core Syntax & Data Extraction</h3>
             <p>Immersion into Base SAS and Advanced SAS. Focus on DATA step logic, PROC SQL, and Macro Processing to establish baseline programming competence.</p>
@@ -316,7 +241,7 @@
         <div class="timeline-item right reveal" role="listitem">
           <div class="timeline-dot" aria-hidden="true"></div>
           <div class="timeline-content glass-card">
-            <span class="timeline-year">Sequence 2</span>
+            <time class="timeline-year" datetime="2026-11">Sequence 2</time>
             <div class="timeline-icon-wrap"><i class="bi bi-diagram-2"></i></div>
             <h3>Standardized Data Mapping</h3>
             <p>Applying programming logic to global industry repositories (CDISC Pilot Project & PhUSE). Executing SDTM mappings based on established Implementation Guides.</p>
@@ -325,7 +250,7 @@
 
         <div class="timeline-item left reveal" role="listitem">
           <div class="timeline-content glass-card">
-            <span class="timeline-year">Sequence 3</span>
+            <time class="timeline-year" datetime="2027-03">Sequence 3</time>
             <div class="timeline-icon-wrap"><i class="bi bi-bar-chart-steps"></i></div>
             <h3>Analytics & Output Validation</h3>
             <p>Deriving ADaM variables from SDTM datasets. Generating standardized Tables, Listings, and Figures (TLFs) required for FDA/EMA regulatory submissions.</p>
@@ -337,13 +262,12 @@
     </div>
   </section>
 
+  <!-- Section 4: Academic Validation (Three-dimensional structural layout) -->
   <section id="validation" class="section cert-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Academic <span class="gradient-text">Validation</span></h2>
-        <div class="title-line">
-          <span></span><i class="bi bi-award-fill"></i><span></span>
-        </div>
+        <div class="title-line"><span></span><i class="bi bi-award-fill"></i><span></span></div>
         <p class="section-subtitle">Verifiable achievements establishing domain competence and scientific communication capability.</p>
       </div>
 
@@ -352,51 +276,60 @@
         
         <div class="cert-3d-container" id="cert-3d-container">
           <div class="cert-3d-card glass-card active">
-            <div class="cert-3d-image">
-              <img src="assets/cert1.jpg" alt="INDO-US Conference">
-              <button class="preview-btn" data-img="assets/cert1.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-3d-content">
-              <span class="cert-badge tier-1"><i class="bi bi-trophy-fill"></i> 1st Prize</span>
-              <h3>INDO-US International Conference</h3>
-              <p>Poster Presentation on Nanotechnology and Drug Design. Proves capability to present complex scientific data to an international audience.</p>
-            </div>
+            <div class="cert-3d-image"><img src="assets/cert1.jpg" alt="INDO-US Conference"><button class="preview-btn" data-img="assets/cert1.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-1"><i class="bi bi-trophy-fill"></i> 1st Prize</span><h3>INDO-US International Conference</h3><p>Poster Presentation on Nanotechnology and Drug Design. Proves capability to present complex scientific data to an international audience.</p></div>
           </div>
-
           <div class="cert-3d-card glass-card next">
-            <div class="cert-3d-image">
-              <img src="assets/cert2.jpg" alt="Pharmacovigilance Infographics">
-              <button class="preview-btn" data-img="assets/cert2.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-3d-content">
-              <span class="cert-badge tier-1"><i class="bi bi-trophy-fill"></i> 1st Position</span>
-              <h3>National Pharmacovigilance Week</h3>
-              <p>Infographics Competition. Showcased the ability to visually translate and synthesize complex drug safety variables.</p>
-            </div>
+            <div class="cert-3d-image"><img src="assets/cert2.jpg" alt="Pharmacovigilance"><button class="preview-btn" data-img="assets/cert2.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-1"><i class="bi bi-trophy-fill"></i> 1st Position</span><h3>National Pharmacovigilance Week</h3><p>Infographics Competition. Showcased the ability to visually translate and synthesize complex drug safety variables.</p></div>
           </div>
-
           <div class="cert-3d-card glass-card">
-            <div class="cert-3d-image">
-              <img src="assets/cert11.jpg" alt="AIKYAM Technical Film">
-              <button class="preview-btn" data-img="assets/cert11.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-3d-content">
-              <span class="cert-badge tier-3"><i class="bi bi-camera-video-fill"></i> Creative Tech</span>
-              <h3>Technical Film - Aikyam 3.0</h3>
-              <p>Blended pharmaceutical knowledge with digital storytelling to produce engaging media content for the National Pharmafest.</p>
-            </div>
+            <div class="cert-3d-image"><img src="assets/cert3.jpg" alt="NIPAM IPR Certificate"><button class="preview-btn" data-img="assets/cert3.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-1"><i class="bi bi-patch-check-fill"></i> Govt. Recognized</span><h3>NIPAM IPR Certification</h3><p>Officially certified under the National IP Awareness Mission. Demonstrated understanding of Intellectual Property Rights constraints.</p></div>
           </div>
-
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert4.png" alt="Google Ads"><img src="assets/cert4a1.png" class="badge-overlay" alt="Google Badge"><button class="preview-btn" data-img="assets/cert4.png"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-2"><i class="bi bi-google"></i> Certification</span><h3>Google Ads Measurement</h3><p>Achieved official certification from Google, demonstrating proficiency in analyzing digital metrics and leveraging data.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert5.jpg" alt="LinkedIn AI"><button class="preview-btn" data-img="assets/cert5.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-2"><i class="bi bi-linkedin"></i> Certification</span><h3>Generative AI Foundation</h3><p>Completed an in-depth foundational course on Generative AI and its transformative real-world applications.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert6.jpg" alt="be10x AI"><button class="preview-btn" data-img="assets/cert6.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-2"><i class="bi bi-robot"></i> Practical Skills</span><h3>AI Tools & ChatGPT Workshop</h3><p>Successfully completed a hands-on technical workshop focused on leveraging advanced AI tools for rapid data analysis.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert7.jpg" alt="Scouts and Guides"><button class="preview-btn" data-img="assets/cert7.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-2"><i class="bi bi-compass-fill"></i> Leadership</span><h3>Sea Scouts & Guides Camp</h3><p>Proudly worked alongside the Indian Navy for 1 week, developing exceptional leadership, discipline, and survival skills.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert8.jpg" alt="Ethical Hacking"><button class="preview-btn" data-img="assets/cert8.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-3"><i class="bi bi-shield-lock-fill"></i> Cybersecurity</span><h3>Ethical Hacking Workshop</h3><p>Explored network scanning, web vulnerabilities, Wi-Fi security, and core cybersecurity principles via VaultofCodes.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert9.jpg" alt="TOPS Malware"><button class="preview-btn" data-img="assets/cert9.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-3"><i class="bi bi-shield-check"></i> Tech Webinar</span><h3>Malware Protection</h3><p>Attended an expert-led webinar focused on robust malware protection strategies and digital threat mitigation.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert10.jpg" alt="Oral Presentation"><button class="preview-btn" data-img="assets/cert10.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-3"><i class="bi bi-mic-fill"></i> Speaker</span><h3>Oral Presentation - Aikyam 3.0</h3><p>Delivered an impactful oral presentation at the National Pharmafest, articulating complex technical concepts.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert11.jpg" alt="Film Making"><button class="preview-btn" data-img="assets/cert11.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-3"><i class="bi bi-camera-video-fill"></i> Creative Tech</span><h3>Film Making - Aikyam 3.0</h3><p>Blended pharmaceutical knowledge with digital storytelling to produce engaging media content for the National Pharmafest.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert12.jpg" alt="Video Making PV"><button class="preview-btn" data-img="assets/cert12.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-3"><i class="bi bi-play-circle-fill"></i> Video Creation</span><h3>1-Minute Video Making</h3><p>Created a compelling educational video for National Pharmacovigilance Week, promoting public awareness regarding drug safety.</p></div>
+          </div>
+          <div class="cert-3d-card glass-card">
+            <div class="cert-3d-image"><img src="assets/cert14.jpg" alt="Community Outreach"><button class="preview-btn" data-img="assets/cert14.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-3"><i class="bi bi-people-fill"></i> Outreach</span><h3>Community Pharmacy Outreach</h3><p>Actively engaged with the public to raise awareness about medication safety and responsible drug usage.</p></div>
+          </div>
           <div class="cert-3d-card glass-card prev">
-            <div class="cert-3d-image">
-              <img src="assets/cert3.jpg" alt="NIPAM IPR Certificate">
-              <button class="preview-btn" data-img="assets/cert3.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-3d-content">
-              <span class="cert-badge tier-1"><i class="bi bi-patch-check-fill"></i> Govt. Recognized</span>
-              <h3>NIPAM IPR Certification</h3>
-              <p>Officially certified under the National IP Awareness Mission. Demonstrated understanding of Intellectual Property Rights constraints.</p>
-            </div>
+            <div class="cert-3d-image"><img src="assets/Parth_CV.jpg" alt="Curriculum Vitae"><button class="preview-btn" data-img="assets/Parth_CV.jpg"><i class="bi bi-eye-fill"></i></button></div>
+            <div class="cert-3d-content"><span class="cert-badge tier-3"><i class="bi bi-file-earmark-text"></i> Professional</span><h3>Curriculum Vitae</h3><p>Comprehensive overview of professional experience, academic background, and technical proficiencies.</p></div>
           </div>
         </div>
         
@@ -410,13 +343,12 @@
     </div>
   </section>
 
+  <!-- Section 5: Professional Network -->
   <section id="connect" class="section connect-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Professional <span class="gradient-text">Network</span></h2>
-        <div class="title-line">
-          <span></span><i class="bi bi-link-45deg"></i><span></span>
-        </div>
+        <div class="title-line"><span></span><i class="bi bi-link-45deg"></i><span></span></div>
       </div>
 
       <div class="contact-info glass-card" style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -443,7 +375,7 @@
             </div>
           </a>
           
-          <a href="#" target="_blank" rel="noopener noreferrer" class="contact-item" style="width: auto; padding: 12px 24px;">
+          <a href="https://github.com/ParthSTalpada" target="_blank" rel="noopener noreferrer" class="contact-item" style="width: auto; padding: 12px 24px;">
             <div class="contact-item-icon" style="margin: 0; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;"><i class="bi bi-github"></i></div>
             <div style="text-align: left;">
               <strong>GitHub</strong>
@@ -455,6 +387,7 @@
     </div>
   </section>
 
+  <!-- Global Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-container">
       <div class="footer-brand">
@@ -505,6 +438,6 @@
     <i class="bi bi-arrow-up"></i>
   </button>
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js"></script>
 </body>
 </html>
