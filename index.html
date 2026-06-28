@@ -14,11 +14,11 @@
   <link rel="stylesheet" href="style.css?v=1.1" />
   <!-- FINAL FIX FOR NAVBAR & FOOTER OVERLAP -->
   <style>
-    /* 1. Navbar Clipping Fix - Force height and push image down */
+    /* 1. Base Navbar Fix (Applies to all) */
     .navbar {
       height: 85px !important;
       align-items: center !important;
-      padding-top: 10px !important; /* Pushes entire navbar content slightly down */
+      padding-top: 10px !important; 
     }
     
     .nav-profile-img {
@@ -28,11 +28,22 @@
       max-width: 40px !important;
       object-fit: cover !important;
       border-radius: 50% !important;
-      margin-top: 5px !important; /* Extra push to keep it away from top edge */
+      margin-top: 5px !important; 
       border: 2px solid #4361ee !important;
     }
 
-    /* 2. Footer Overlap Fix - Force Flex Column on Mobile */
+    /* 2. Laptop and Desktop ONLY Fix */
+    @media (min-width: 769px) {
+      .navbar {
+        height: 90px !important;
+        padding-top: 15px !important; 
+      }
+      .nav-profile-img {
+        margin-top: 10px !important;
+      }
+    }
+
+    /* 3. Mobile Footer Fix (Leaves Mobile exactly as it is now) */
     @media (max-width: 768px) {
       .footer-container {
         display: flex !important;
@@ -42,7 +53,7 @@
       .footer-brand {
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important; /* Adds safe space between footer text */
+        gap: 10px !important; 
       }
       .footer-brand p {
         margin: 0 !important;
