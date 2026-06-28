@@ -15,13 +15,16 @@
 </head>
 <body>
 
+  <!-- Background rendering nodes -->
   <canvas id="bg-canvas"></canvas>
   <div class="bg-overlay"></div>
 
+  <!-- Header navigation system -->
   <nav id="navbar" class="navbar" role="navigation">
     <div class="nav-container">
       <a href="#home" class="nav-logo" id="nav-logo-link">
-        <div class="logo-icon">P</div>
+        <!-- 'P' logo replaced with small profile photo -->
+        <img src="assets/profile.png" alt="Parth Talpada" class="nav-profile-img" onerror="this.style.display='none'">
         <span class="logo-text">Parth Sanjaybhai Talpada</span>
       </a>
       <ul class="nav-links" id="nav-links" role="list">
@@ -35,6 +38,7 @@
       </button>
     </div>
     
+    <!-- Mobile navigation overlay -->
     <div class="mobile-menu" id="mobile-menu" role="menu" aria-hidden="true">
       <a href="#home" class="mobile-link" role="menuitem">Home</a>
       <a href="#projects" class="mobile-link" role="menuitem">Projects</a>
@@ -43,6 +47,7 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="shape shape-torus" aria-hidden="true"></div>
     <div class="shape shape-cube" aria-hidden="true"></div>
@@ -53,7 +58,7 @@
       <div class="hero-content">
         <div class="hero-badge" id="hero-badge">
           <i class="bi bi-person-circle"></i>
-          🎓 4th Sem B.Pharm &nbsp;|&nbsp; 💻 Tech Consultant (Intern) @ Kalpene Global
+          🎓 4th Sem B.Pharm &nbsp;|&nbsp; 💻 Tech Consultant (Intern) @ Kalpanik Global
         </div>
 
         <h1 class="hero-heading">
@@ -87,6 +92,7 @@
     </div>
   </section>
 
+  <!-- Projects Section -->
   <section id="projects" class="section expertise-section">
     <div class="floating-shapes-sm" aria-hidden="true">
       <div class="sm-shape sm-torus"></div>
@@ -131,6 +137,7 @@
     </div>
   </section>
 
+  <!-- Certificates Section -->
   <section id="certificates" class="section cert-section">
     <div class="container">
       <div class="section-header">
@@ -143,6 +150,7 @@
         <button class="carousel-btn prev-btn" id="cert-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
         
         <div class="cert-carousel-container" id="cert-carousel-container">
+          <!-- Cert 1 -->
           <div class="cert-card glass-card active">
             <div class="cert-image-wrap">
               <img src="assets/cert1.jpg" alt="INDO-US Conference">
@@ -154,6 +162,7 @@
               <p>Secured 1st Prize in Poster Presentation on Nanotechnology and Drug Design.</p>
             </div>
           </div>
+          <!-- Cert 2 -->
           <div class="cert-card glass-card next">
             <div class="cert-image-wrap">
               <img src="assets/cert2.jpg" alt="National PV Week">
@@ -165,6 +174,7 @@
               <p>Secured 1st Position in the National Infographics Competition.</p>
             </div>
           </div>
+          <!-- Cert 3 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert3.jpg" alt="NIPAM IPR">
@@ -176,6 +186,7 @@
               <p>Successfully participated in the Intellectual Property Rights Awareness Mission.</p>
             </div>
           </div>
+          <!-- Cert 4 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert4.jpg" alt="Google Ads">
@@ -187,6 +198,7 @@
               <p>Official Google certification demonstrating proficiency in digital metrics.</p>
             </div>
           </div>
+          <!-- Cert 5 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert6.jpg" alt="be10x AI">
@@ -198,6 +210,7 @@
               <p>Hands-on workshop focused on leveraging advanced AI tools by be10x.</p>
             </div>
           </div>
+          <!-- Cert 6 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert12.jpg" alt="LinkedIn Generative AI">
@@ -209,6 +222,7 @@
               <p>Completed foundational course on Generative AI principles via LinkedIn Learning.</p>
             </div>
           </div>
+          <!-- Cert 7 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert5.jpg" alt="Scouts & Guides">
@@ -220,6 +234,7 @@
               <p>Active participation in the Gujarat State Bharat Scouts & Guides camp.</p>
             </div>
           </div>
+          <!-- Cert 8 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert7.jpg" alt="Ethical Hacking">
@@ -231,6 +246,7 @@
               <p>Completed a 2-Hour intensive Ethical Hacking & Cybersecurity session.</p>
             </div>
           </div>
+          <!-- Cert 9 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert13.jpg" alt="Malware Webinar">
@@ -242,6 +258,7 @@
               <p>Attended expert-led session on digital threat mitigation strategies.</p>
             </div>
           </div>
+          <!-- Cert 10 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert9.jpg" alt="Aikyam Oral">
@@ -253,6 +270,7 @@
               <p>Delivered an impactful oral presentation at the National Pharmafest.</p>
             </div>
           </div>
+          <!-- Cert 11 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert8.jpg" alt="Aikyam Film">
@@ -264,6 +282,7 @@
               <p>Participated in the Technical Film Making event at National Pharmafest.</p>
             </div>
           </div>
+          <!-- Cert 12 -->
           <div class="cert-card glass-card">
             <div class="cert-image-wrap">
               <img src="assets/cert10.jpg" alt="PV 1min Video">
@@ -275,7 +294,8 @@
               <p>Created digital media content for National Pharmacovigilance Week 2025.</p>
             </div>
           </div>
-          <div class="cert-card glass-card">
+          <!-- Cert 13 -->
+          <div class="cert-card glass-card prev">
             <div class="cert-image-wrap">
               <img src="assets/cert11.jpg" alt="PV Outreach">
               <button class="preview-btn" data-img="assets/cert11.jpg"><i class="bi bi-eye-fill"></i></button>
@@ -286,22 +306,13 @@
               <p>Actively engaged in community awareness during Pharmacovigilance Week.</p>
             </div>
           </div>
-          <div class="cert-card glass-card prev">
-            <div class="cert-image-wrap">
-              <img src="assets/Parth_CV.jpg" alt="Curriculum Vitae" onerror="this.src='assets/cert1.jpg'">
-              <button class="preview-btn" data-img="assets/Parth_CV.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-file-earmark-text"></i> Professional</span></div>
-              <h3>Curriculum Vitae</h3>
-              <p>Comprehensive overview of professional experience and technical background.</p>
-            </div>
-          </div>
+          <!-- CV Card Removed Completely -->
         </div>
         
         <button class="carousel-btn next-btn" id="cert-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
       </div>
 
+      <!-- Image Modal -->
       <div id="image-modal" class="cert-modal">
         <span class="close-modal" id="close-modal">&times;</span>
         <img class="modal-content" id="modal-img">
@@ -309,6 +320,7 @@
     </div>
   </section>
 
+  <!-- Connect Section -->
   <section id="connect" class="section connect-section">
     <div class="container">
       <div class="section-header">
@@ -318,6 +330,7 @@
       </div>
 
       <div class="connect-grid">
+        <!-- Left: Info -->
         <div class="connect-info glass-card">
           <h3>Get In Touch</h3>
           <p class="connect-desc">Whether you have a project in mind, want to collaborate, or just want to say hello — I'd love to hear from you!</p>
@@ -331,7 +344,8 @@
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/parth-s-talpada" target="_blank" rel="noopener noreferrer" class="connect-card-item">
+          <!-- LinkedIn URL Updated -->
+          <a href="https://www.linkedin.com/in/parth-s-talpada-90508632a" target="_blank" rel="noopener noreferrer" class="connect-card-item">
             <div class="connect-icon"><i class="bi bi-linkedin"></i></div>
             <div class="connect-text">
               <strong>LinkedIn</strong>
@@ -350,6 +364,7 @@
           </div>
         </div>
 
+        <!-- Right: Form -->
         <div class="connect-form-wrap glass-card">
           <h3>Send Me a Message</h3>
           <form class="connect-form" action="#" method="POST">
@@ -380,11 +395,13 @@
     </div>
   </section>
 
+  <!-- Global Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-container">
       <div class="footer-brand">
-        <a href="#home" class="footer-logo">
-          <div class="logo-icon">P</div>
+        <a href="#home" class="footer-logo nav-logo">
+          <!-- 'P' logo replaced with small profile photo -->
+          <img src="assets/profile.png" alt="Parth Talpada" class="nav-profile-img" onerror="this.style.display='none'">
           <span class="logo-text">Parth Sanjaybhai Talpada</span>
         </a>
         <p class="footer-tagline">Pharmacy Undergraduate | Sardar Patel College of Pharmacy</p>
@@ -407,8 +424,9 @@
           <a href="mailto:talpadaparth1@gmail.com" class="footer-contact-item">
             <i class="bi bi-envelope-fill"></i> talpadaparth1@gmail.com
           </a>
-          <a href="https://www.linkedin.com/in/parth-s-talpada" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
-            <i class="bi bi-linkedin"></i> linkedin.com/in/parth-s-talpada
+          <!-- LinkedIn URL Updated -->
+          <a href="https://www.linkedin.com/in/parth-s-talpada-90508632a" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+            <i class="bi bi-linkedin"></i> linkedin.com/in/parth-s-talpada-90508632a
           </a>
           <div class="footer-contact-item">
             <i class="bi bi-geo-alt-fill"></i> Gujarat, India
