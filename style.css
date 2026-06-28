@@ -245,3 +245,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .cert-card { width: 260px; }
   .cert-card.prev, .cert-card.next { opacity: 0; pointer-events: none; } /* Ghost click prevention */
 }
+/* ================================================
+   CRITICAL FIX: NAVIGATION & FOOTER PROFILE IMAGE
+================================================ */
+.nav-profile-img {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  max-width: 42px !important;
+  flex-shrink: 0 !important; /* Prevents image from squishing */
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid var(--accent-blue) !important;
+  box-shadow: var(--shadow-card) !important;
+  display: block !important;
+}
+
+.nav-logo, .footer-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+}
+
+.logo-text {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  font-size: 1.1rem !important;
+  white-space: nowrap !important; /* Prevents text from breaking into multiple lines */
+}
