@@ -95,28 +95,19 @@
     </div>
   </section>
 
+  <!-- Technical Evidence: Project Portfolio -->
   <section id="evidence" class="section expertise-section">
-    <div class="floating-shapes-sm" aria-hidden="true">
-      <div class="sm-shape sm-torus"></div>
-      <div class="sm-shape sm-cube"></div>
-      <div class="sm-shape sm-sphere"></div>
-    </div>
-
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Technical <span class="gradient-text">Evidence</span></h2>
-        <div class="title-line">
-          <span></span><i class="bi bi-braces"></i><span></span>
-        </div>
+        <div class="title-line"><span></span><i class="bi bi-braces"></i><span></span></div>
         <p class="section-subtitle">Deployed architecture and logical frameworks verifying system optimization and data handling capabilities.</p>
       </div>
 
       <div class="expertise-grid">
         <div class="expertise-card glass-card">
           <div class="expertise-card-header">
-            <div class="expertise-icon tech-icon">
-              <i class="bi bi-heart-pulse"></i>
-            </div>
+            <div class="expertise-icon tech-icon"><i class="bi bi-heart-pulse"></i></div>
             <div>
               <h3 class="expertise-title">Healthcare Informatics</h3>
               <p class="expertise-subtitle">RxPulse Technology Project</p>
@@ -125,13 +116,14 @@
           <p class="expertise-desc">
             Designed and conceptualized RxPulse, focusing on clinical relevance, healthcare data structures, and logical solution architecture for modern health variables.
           </p>
+          <a href="https://github.com/ParthSTalpada" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding: 6px 14px; font-size: 0.75rem; margin-top: 10px;">
+            <i class="bi bi-github"></i> View Architecture
+          </a>
         </div>
 
         <div class="expertise-card glass-card">
           <div class="expertise-card-header">
-            <div class="expertise-icon pharma-icon">
-              <i class="bi bi-cpu"></i>
-            </div>
+            <div class="expertise-icon pharma-icon"><i class="bi bi-cpu"></i></div>
             <div>
               <h3 class="expertise-title pharma-title">Logic & Automation</h3>
               <p class="expertise-subtitle">OptiTool AI & Quick Attendance</p>
@@ -140,21 +132,84 @@
           <p class="expertise-desc">
             Engineered backend logic using Python and OpenCV. Designed algorithmic frameworks for facial recognition processing, data structuring, and automated system optimization.
           </p>
+          <a href="https://github.com/ParthSTalpada" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding: 6px 14px; font-size: 0.75rem; margin-top: 10px;">
+            <i class="bi bi-github"></i> View Logic
+          </a>
+        </div>
+        <!-- Enterprise Execution Card remains same -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Knowledge Artifacts: Accordion UI -->
+  <section id="artifacts" class="section initiatives-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Knowledge <span class="gradient-text">Artifacts</span></h2>
+        <div class="title-line"><span></span><i class="bi bi-diagram-3"></i><span></span></div>
+      </div>
+
+      <div class="artifacts-stack" style="display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto;">
+        
+        <div class="artifact-accordion glass-card">
+          <button class="artifact-trigger" aria-expanded="false" aria-controls="artifact-content-1">
+            <div class="artifact-title-wrap">
+              <div class="artifact-icon"><i class="bi bi-file-earmark-medical"></i></div>
+              <div style="text-align: left;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px;">Clinical Trial Lifecycle</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Protocol to SAP Workflow Analysis</p>
+              </div>
+            </div>
+            <i class="bi bi-chevron-down artifact-chevron"></i>
+          </button>
+          <div id="artifact-content-1" class="artifact-content"><div class="artifact-content-inner"><p>Mapping structural transition of raw clinical data from Case Report Forms (CRFs) to Statistical Analysis Plans (SAPs).</p></div></div>
         </div>
 
-        <div class="expertise-card glass-card" style="grid-column: 1 / -1;">
-          <div class="expertise-card-header">
-            <div class="expertise-icon" style="background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); color: var(--accent-green);">
-              <i class="bi bi-building"></i>
+        <div class="artifact-accordion glass-card">
+          <button class="artifact-trigger" aria-expanded="false" aria-controls="artifact-content-2">
+            <div class="artifact-title-wrap">
+              <div class="artifact-icon"><i class="bi bi-database-check"></i></div>
+              <div style="text-align: left;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px;">CDISC Standards Foundations</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">SDTM & ADaM Data Structures</p>
+              </div>
             </div>
-            <div>
-              <h3 class="expertise-title" style="background: linear-gradient(90deg, #00e5a0, #00c4cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Enterprise Execution</h3>
-              <p class="expertise-subtitle">Technical Consultant (Intern) @ Kalpene Global</p>
-            </div>
+            <i class="bi bi-chevron-down artifact-chevron"></i>
+          </button>
+          <div id="artifact-content-2" class="artifact-content"><div class="artifact-content-inner"><p>Developing concept maps to differentiate structural requirements of SDTM compliance versus ADaM derivations.</p></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAS Roadmap Timeline -->
+  <section id="roadmap" class="section journey-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">2026–2027 <span class="gradient-text">SAS Roadmap</span></h2>
+        <div class="title-line"><span></span><i class="bi bi-map"></i><span></span></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item left reveal">
+          <div class="timeline-content glass-card">
+            <!-- ATS Semantic Time Tag -->
+            <time class="timeline-year" datetime="2026-07">Sequence 1</time>
+            <div class="timeline-icon-wrap"><i class="bi bi-terminal"></i></div>
+            <h3>Core Syntax & Extraction</h3>
+            <p>Focus: Base SAS, Advanced SAS, PROC SQL, and Macro Processing.</p>
           </div>
-          <p class="expertise-desc" style="margin-bottom: 0;">
-            Executing technical consulting protocols, focusing on system automation, user interface logic mapping, and structured front-end development within a corporate tech environment.
-          </p>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-item right reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <time class="timeline-year" datetime="2026-11">Sequence 2</time>
+            <div class="timeline-icon-wrap"><i class="bi bi-diagram-2"></i></div>
+            <h3>Standardized Mapping</h3>
+            <p>Applying CDISC Pilot Project / PhUSE datasets. Executing SDTM mappings based on Implementation Guides.</p>
+          </div>
         </div>
       </div>
     </div>
