@@ -1,13 +1,12 @@
 'use strict';
 
-// 1. Hardware-throttled canvas rendering (Dot/Particle Background)
+// 1. Hardware-throttled canvas rendering (Dot/Particle Background - FIXED: Now runs everywhere)
 (function initCanvas() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let width, height, particles, mouseX = 0, mouseY = 0;
   let animationFrameId;
-  let isCanvasVisible = true;
 
   const PARTICLE_COUNT = 90;
   const CONNECTION_DIST = 130;
@@ -65,22 +64,13 @@
   }
 
   function animate() {
-    if (!isCanvasVisible) return;
     ctx.clearRect(0, 0, width, height);
     particles.forEach(p => { p.update(); p.draw(); });
     drawConnections();
     animationFrameId = requestAnimationFrame(animate);
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    isCanvasVisible = entries[0].isIntersecting;
-    if (isCanvasVisible) animate();
-    else cancelAnimationFrame(animationFrameId);
-  }, { threshold: 0 });
-  
-  const homeSection = document.getElementById('home');
-  if(homeSection) observer.observe(homeSection);
-
+  // Observer हटा दिया गया है ताकि एनीमेशन कभी न रुके
   window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; }, { passive: true });
   
   let resizeTimeout;
