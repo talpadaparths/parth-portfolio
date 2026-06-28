@@ -136,9 +136,9 @@
   });
 })();
 
-// 3. Scroll Reveal Elements
+// 3. Scroll Reveal Elements (Fixed: Removed .cert-card to prevent transform conflict)
 (function initScrollReveal() {
-  const cards = document.querySelectorAll('.expertise-card, .cert-card, .connect-info, .connect-form-wrap');
+  const cards = document.querySelectorAll('.expertise-card, .connect-info, .connect-form-wrap');
   const cardObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -152,12 +152,9 @@
   }, { threshold: 0.08 });
 
   cards.forEach(card => {
-    // Only apply translateY to non-carousel items
-    if(!card.classList.contains('cert-card')){
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(28px)';
-        card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    }
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(28px)';
+    card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
     cardObserver.observe(card);
   });
 })();
