@@ -303,3 +303,65 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   align-items: center !important;
   height: 100% !important;
 }
+
+/* ================================================
+   FINAL FIX: NAVBAR CLIPPING & FOOTER OVERLAP
+================================================ */
+
+/* 1. Navbar Clipping Fix 
+.navbar {
+  height: auto !important;
+  min-height: 80px !important; 
+  padding: 15px 0 !important; 
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav-logo, .footer-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  padding: 5px 0 !important; 
+}
+
+.nav-profile-img {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid var(--accent-blue) !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+}
+
+/* 2. Footer Overlap Fix 
+.footer-container {
+  display: flex !important;
+  flex-direction: column !important; 
+  gap: 40px !important;
+}
+
+.footer-brand, .footer-links, .footer-contact {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.footer-brand p {
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  display: block !important;
+}
+
+
+@media (min-width: 769px) {
+  .footer-container {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr 1.5fr !important;
+    gap: 48px !important;
+  }
+}
