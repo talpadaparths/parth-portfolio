@@ -1,6 +1,6 @@
 'use strict';
 
-// Hardware-throttled canvas rendering using IntersectionObserver & Debounce
+// 1. Hardware-throttled canvas rendering (Dot/Particle Background)
 (function initCanvas() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
@@ -72,14 +72,10 @@
     animationFrameId = requestAnimationFrame(animate);
   }
 
-  // Viewport observer to pause canvas rendering when off-screen (CPU save)
   const observer = new IntersectionObserver((entries) => {
     isCanvasVisible = entries[0].isIntersecting;
-    if (isCanvasVisible) {
-      animate();
-    } else {
-      cancelAnimationFrame(animationFrameId);
-    }
+    if (isCanvasVisible) animate();
+    else cancelAnimationFrame(animationFrameId);
   }, { threshold: 0 });
   
   const homeSection = document.getElementById('home');
@@ -87,7 +83,6 @@
 
   window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; }, { passive: true });
   
-  // Resize debouncer to prevent calculation loop freezing
   let resizeTimeout;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
@@ -97,7 +92,7 @@
   resize(); createParticles(); animate();
 })();
 
-// IntersectionObserver based navigation tracking (Eliminates scroll layout thrashing)
+// 2. Navigation Tracking & Mobile Menu
 (function initNavbar() {
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -107,8 +102,8 @@
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
   const topObserver = new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) { navbar.classList.add('scrolled'); } 
-    else { navbar.classList.remove('scrolled'); }
+    if (!entries[0].isIntersecting) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
   }, { rootMargin: '-40px 0px 0px 0px' });
   topObserver.observe(document.body);
 
@@ -141,20 +136,9 @@
   });
 })();
 
-// Scroll Reveal Logic
+// 3. Scroll Reveal Elements
 (function initScrollReveal() {
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-  reveals.forEach(el => observer.observe(el));
-
-  const cards = document.querySelectorAll('.expertise-card, .artifact-accordion, .glass-card, .contact-info');
+  const cards = document.querySelectorAll('.expertise-card, .cert-card, .connect-info, .connect-form-wrap');
   const cardObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -168,14 +152,17 @@
   }, { threshold: 0.08 });
 
   cards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(28px)';
-    card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    // Only apply translateY to non-carousel items
+    if(!card.classList.contains('cert-card')){
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(28px)';
+        card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    }
     cardObserver.observe(card);
   });
 })();
 
-// Back to Top Button
+// 4. Back to Top Button
 (function initBackToTop() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
@@ -187,7 +174,7 @@
   });
 })();
 
-// Smooth Scrolling for anchor links
+// 5. Smooth Scrolling
 (function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -202,116 +189,7 @@
   });
 })();
 
-// A11y compliant accordion logic with responsive height clearing
-(function initKnowledgeArtifacts() {
-  const artifacts = document.querySelectorAll('.artifact-accordion');
-  if (!artifacts.length) return;
-
-  artifacts.forEach(artifact => {
-    const trigger = artifact.querySelector('.artifact-trigger');
-    const content = artifact.querySelector('.artifact-content');
-    if (!trigger || !content) return;
-
-    trigger.addEventListener('click', () => {
-      const isCurrentlyOpen = artifact.classList.contains('is-open');
-
-      artifacts.forEach(item => {
-        item.classList.remove('is-open');
-        item.querySelector('.artifact-trigger').setAttribute('aria-expanded', 'false');
-        const itemContent = item.querySelector('.artifact-content');
-        if (itemContent && itemContent.style.maxHeight !== 'none') {
-          itemContent.style.maxHeight = null;
-        } else if (itemContent) {
-          // Force reflow before collapsing if height was stripped
-          itemContent.style.maxHeight = itemContent.scrollHeight + 'px';
-          setTimeout(() => itemContent.style.maxHeight = null, 10);
-        }
-      });
-
-      if (!isCurrentlyOpen) {
-        artifact.classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
-        content.style.maxHeight = content.scrollHeight + "px";
-        
-        setTimeout(() => {
-          // Remove absolute height constraint post-transition to allow responsive reflow
-          if (artifact.classList.contains('is-open')) content.style.maxHeight = 'none';
-        }, 350);
-      }
-    });
-  });
-})();
-
-// Typing Animation
-(function initTypingEffect() {
-  const headingEl = document.querySelector('.hero-heading');
-  if (!headingEl) return;
-  headingEl.style.opacity = '0';
-  headingEl.style.transform = 'translateY(24px)';
-  setTimeout(() => {
-    headingEl.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
-    headingEl.style.opacity = '1';
-    headingEl.style.transform = 'translateY(0)';
-  }, 200);
-})();
-
-// Timeline Stagger Animation
-(function initTimeline() {
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  timelineItems.forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(24px)';
-    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(item);
-  });
-
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = `
-    .timeline-item.in-view { opacity: 1 !important; transform: translateY(0) !important; }
-  `;
-  document.head.appendChild(styleSheet);
-})();
-
-// GPU-accelerated cursor mapping utilizing transform logic
-(function initCursorGlow() {
-  const trail = document.createElement('div');
-  trail.id = 'cursor-trail';
-  trail.style.cssText = `
-    position: fixed; top: 0; left: 0; width: 300px; height: 300px;
-    border-radius: 50%; background: radial-gradient(circle, rgba(200,80,255,0.04) 0%, transparent 70%);
-    pointer-events: none; z-index: 0;
-    transition: transform 0.12s ease; will-change: transform;
-  `;
-  document.body.appendChild(trail);
-
-  window.addEventListener('mousemove', e => {
-    trail.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
-  }, { passive: true });
-})();
-
-// Nav Logo Animation
-(function initLogoAnimation() {
-  const logo = document.querySelector('.logo-icon');
-  if (!logo) return;
-  logo.addEventListener('mouseenter', () => {
-    logo.style.transform = 'rotate(10deg) scale(1.1)';
-    logo.style.transition = 'transform 0.3s ease';
-  });
-  logo.addEventListener('mouseleave', () => {
-    logo.style.transform = 'rotate(0deg) scale(1)';
-  });
-})();
-
-// Section Gradient Lines
+// 6. Section Gradient Lines
 (function initSectionIndicator() {
   const sections = document.querySelectorAll('section[id]');
   sections.forEach(section => {
@@ -326,12 +204,12 @@
   });
 })();
 
-// 3D Carousel Implementation
+// 7. Center-Focused Peek Carousel & Modal (Updated for 14 Certificates)
 document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.cert-3d-card');
+    const cards = document.querySelectorAll('.cert-card');
     const prevBtn = document.getElementById('cert-prev');
     const nextBtn = document.getElementById('cert-next');
-    const wrapper = document.querySelector('.cert-3d-wrapper');
+    const wrapper = document.querySelector('.cert-carousel-wrapper');
     
     if(cards.length === 0) return;
 
@@ -358,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     });
 
+    // Click side cards to bring them to center
     cards.forEach((card) => {
         card.addEventListener('click', () => {
             if(card.classList.contains('prev')) prevBtn.click();
@@ -365,8 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Swipe Support for Touch Devices
     let touchStartX = 0, touchEndX = 0;
-    
     wrapper.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
     wrapper.addEventListener('touchend', e => {
         touchEndX = e.changedTouches[0].screenX;
@@ -374,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (touchEndX > touchStartX + 50) prevBtn.click();
     }, {passive: true});
 
+    // Modal Logic (Eye Icon Click)
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.getElementById("close-modal");
@@ -381,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     previewBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // Prevents clicking the card behind it
             modalImg.src = btn.getAttribute('data-img');
             modal.classList.add('show');
         });
