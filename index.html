@@ -416,24 +416,28 @@
         <!-- Right: Form -->
         <div class="connect-form-wrap glass-card">
           <h3>Send Me a Message</h3>
-          <form class="connect-form" action="#" method="POST">
+          <form class="connect-form" action="https://formspree.io/f/mkolbqwg" method="POST">
             <div class="form-row">
               <div class="input-group">
                 <i class="bi bi-person"></i>
-                <input type="text" placeholder="Your Name" required>
+                <!-- Added name="Name" -->
+                <input type="text" name="Name" placeholder="Your Name" required>
               </div>
               <div class="input-group">
                 <i class="bi bi-envelope"></i>
-                <input type="email" placeholder="Your Email" required>
+                <!-- Added name="Email" -->
+                <input type="email" name="Email" placeholder="Your Email" required>
               </div>
             </div>
             <div class="input-group">
               <i class="bi bi-tag"></i>
-              <input type="text" placeholder="Purpose of Contact (e.g., Collaboration, Project)" required>
+              <!-- Added name="Subject" -->
+              <input type="text" name="Subject" placeholder="Purpose of Contact" required>
             </div>
             <div class="input-group textarea-group">
               <i class="bi bi-pencil"></i>
-              <textarea placeholder="Your Message" rows="4" required></textarea>
+              <!-- Added name="Message" -->
+              <textarea name="Message" placeholder="Your Message" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn-submit gradient-btn">
               <i class="bi bi-send-fill"></i> Send Message
