@@ -1448,3 +1448,45 @@ button {
   .section-title { font-size: 2rem; }
   .logo-text { display: none; }
 }
+/* ================================================
+   HARDWARE ACCELERATION & PERFORMANCE
+   Forces GPU offloading for continuous animations.
+================================================ */
+.shape, .reveal, .cert-3d-card, #cursor-trail {
+  will-change: transform, opacity;
+}
+
+/* ================================================
+   CORPORATE ACCESSIBILITY (A11y)
+   Mandatory focus states for keyboard navigation (Tab-routing).
+================================================ */
+a:focus-visible, 
+button:focus-visible, 
+.artifact-trigger:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.artifact-trigger {
+  width: 100%;
+  text-align: left;
+  /* Resets inherited button styles */
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* ================================================
+   MOBILE RESPONSIVENESS PATCHES
+================================================ */
+@media (max-width: 768px) {
+  .cert-3d-card.prev, .cert-3d-card.next { 
+    opacity: 0; 
+    /* Eliminates invisible ghost click registration on mobile DOM */
+    pointer-events: none; 
+  }
+}
