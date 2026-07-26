@@ -316,9 +316,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   }
 
   .nav-links {
-    margin-left: auto !important; /* यह पूरे मेनू को एकदम राइट (Right side) में धक्का दे देगा */
+    margin-left: auto !important;
     display: flex !important;
     align-items: center !important;
-    gap: 12px !important; /* बटनों के बीच एक परफेक्ट और ऑप्टिमाइज़्ड स्पेस */
+    gap: 12px !important; 
   }
 }
