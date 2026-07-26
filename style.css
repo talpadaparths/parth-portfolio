@@ -6,7 +6,7 @@
   --bg-secondary: #ffffff;
   --bg-card: rgba(255, 255, 255, 0.65); 
   --border-glass: rgba(0, 0, 0, 0.08);
-  --border-glass-hover: rgba(91, 108, 255, 0.3);
+  --border-glass-hover: rgba(91, 108, 255, 0.4);
 
   --accent-purple: #9d4edd;
   --accent-blue: #4361ee;
@@ -24,6 +24,7 @@
   --shadow-glow-purple: 0 10px 30px rgba(157, 78, 221, 0.15);
   --shadow-glow-blue: 0 10px 30px rgba(67, 97, 238, 0.15);
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 15px 35px rgba(67, 97, 238, 0.12);
 
   --font-primary: 'Outfit', 'Inter', sans-serif;
   --font-body: 'Inter', 'Outfit', sans-serif;
@@ -50,10 +51,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .shape, .reveal, .cert-card { will-change: transform, opacity; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent-purple); outline-offset: 4px; border-radius: var(--radius-sm); }
 
-/* UTILITIES */
+/* UTILITIES (ENHANCED HOVER EFFECT) */
 .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.glass-card { background: var(--bg-card); border: 1px solid var(--border-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: var(--radius-lg); transition: all var(--transition-med); box-shadow: var(--shadow-card); }
-.glass-card:hover { border-color: var(--border-glass-hover); box-shadow: var(--shadow-glow-blue), var(--shadow-card); }
+.glass-card { background: var(--bg-card); border: 1px solid var(--border-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: var(--radius-lg); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); box-shadow: var(--shadow-card); }
+.glass-card:hover { transform: translateY(-6px); border-color: var(--border-glass-hover); box-shadow: var(--shadow-card-hover), var(--shadow-glow-blue); }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 100px 0; position: relative; }
 
@@ -243,7 +244,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .btn-primary { width: 100%; justify-content: center; }
   .logo-text { display: none; }
   .cert-card { width: 260px; }
-  .cert-card.prev, .cert-card.next { opacity: 0; pointer-events: none; } /* Ghost click prevention */
+  .cert-card.prev, .cert-card.next { opacity: 0; pointer-events: none; }
 }
 /* ================================================
    CRITICAL FIX: NAVIGATION & FOOTER PROFILE IMAGE
@@ -253,7 +254,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   height: 42px !important;
   min-width: 42px !important;
   max-width: 42px !important;
-  flex-shrink: 0 !important; /* Prevents image from squishing */
+  flex-shrink: 0 !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 2px solid var(--accent-blue) !important;
@@ -273,7 +274,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-weight: 700 !important;
   color: var(--text-primary) !important;
   font-size: 1.1rem !important;
-  white-space: nowrap !important; /* Prevents text from breaking into multiple lines */
+  white-space: nowrap !important;
 }
 
 /* ================================================
@@ -302,66 +303,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display: flex !important;
   align-items: center !important;
   height: 100% !important;
-}
-
-/* ================================================
-   FINAL FIX: NAVBAR CLIPPING & FOOTER OVERLAP
-================================================ */
-
-/* 1. Navbar Clipping Fix 
-.navbar {
-  height: auto !important;
-  min-height: 80px !important; 
-  padding: 15px 0 !important; 
-  display: flex !important;
-  align-items: center !important;
-}
-
-.nav-logo, .footer-logo {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  text-decoration: none !important;
-  padding: 5px 0 !important; 
-}
-
-.nav-profile-img {
-  width: 44px !important;
-  height: 44px !important;
-  min-width: 44px !important;
-  max-width: 44px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  border: 2px solid var(--accent-blue) !important;
-  flex-shrink: 0 !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
-}
-
-/* 2. Footer Overlap Fix 
-.footer-container {
-  display: flex !important;
-  flex-direction: column !important; 
-  gap: 40px !important;
-}
-
-.footer-brand, .footer-links, .footer-contact {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
-  width: 100% !important;
-}
-
-.footer-brand p {
-  margin: 0 !important;
-  line-height: 1.6 !important;
-  display: block !important;
-}
-
-
-@media (min-width: 769px) {
-  .footer-container {
-    display: grid !important;
-    grid-template-columns: 1.5fr 1fr 1.5fr !important;
-    gap: 48px !important;
-  }
 }

@@ -70,7 +70,6 @@
     animationFrameId = requestAnimationFrame(animate);
   }
 
-  // Observer हटा दिया गया है ताकि एनीमेशन कभी न रुके
   window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; }, { passive: true });
   
   let resizeTimeout;
@@ -126,26 +125,27 @@
   });
 })();
 
-// 3. Scroll Reveal Elements (Fixed: Removed .cert-card to prevent transform conflict)
+// 3. ENHANCED Scroll Reveal Elements (Smooth & Dynamically Paced for Premium Look)
 (function initScrollReveal() {
-  const cards = document.querySelectorAll('.expertise-card, .connect-info, .connect-form-wrap');
+  const elementsToReveal = document.querySelectorAll('.expertise-card, .connect-info, .connect-form-wrap, .section-header');
+  
   const cardObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }, i * 80);
+          entry.target.style.transform = 'translateY(0) scale(1)';
+        }, i * 120); // Slightly longer delay makes the scroll feel much more deliberate and premium
         cardObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  cards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(28px)';
-    card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    cardObserver.observe(card);
+  elementsToReveal.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(35px) scale(0.98)';
+    el.style.transition = 'opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+    cardObserver.observe(el);
   });
 })();
 
@@ -191,7 +191,7 @@
   });
 })();
 
-// 7. Center-Focused Peek Carousel & Modal (Updated for 14 Certificates)
+// 7. Center-Focused Peek Carousel & Modal
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.cert-card');
     const prevBtn = document.getElementById('cert-prev');
@@ -223,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     });
 
-    // Click side cards to bring them to center
     cards.forEach((card) => {
         card.addEventListener('click', () => {
             if(card.classList.contains('prev')) prevBtn.click();
@@ -231,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Swipe Support for Touch Devices
     let touchStartX = 0, touchEndX = 0;
     wrapper.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
     wrapper.addEventListener('touchend', e => {
@@ -240,7 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (touchEndX > touchStartX + 50) prevBtn.click();
     }, {passive: true});
 
-    // Modal Logic (Eye Icon Click)
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.getElementById("close-modal");
@@ -248,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     previewBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevents clicking the card behind it
+            e.stopPropagation();
             modalImg.src = btn.getAttribute('data-img');
             modal.classList.add('show');
         });
