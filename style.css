@@ -304,3 +304,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   align-items: center !important;
   height: 100% !important;
 }
+
+/* ================================================
+   FIX: ALIGN NAVIGATION LINKS TO THE RIGHT
+================================================ */
+@media (min-width: 769px) {
+  .nav-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .nav-links {
+    margin-left: auto !important; /* यह पूरे मेनू को एकदम राइट (Right side) में धक्का दे देगा */
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important; /* बटनों के बीच एक परफेक्ट और ऑप्टिमाइज़्ड स्पेस */
+  }
+}
