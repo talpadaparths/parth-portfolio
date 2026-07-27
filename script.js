@@ -133,9 +133,9 @@
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0) scale(1)';
-        }, i * 120); // Slightly longer delay makes the scroll feel much more deliberate and premium
+  entry.target.style.opacity = '1';
+  entry.target.style.transform = 'translateY(0) scale(1)';
+}, i * 40); // 40ms is much faster and snappie
         cardObserver.unobserve(entry.target);
       }
     });
