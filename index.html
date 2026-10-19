@@ -1,473 +1,1820 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parth Talpada | Tech Enthusiast</title>
-  <meta name="description" content="Bridging healthcare and technology through clinical data systems and automated workflows." />
-  <meta name="description" content="Bridging healthcare and technology through clinical data systems and automated workflows." />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="style.css?v=2.1" />
+  <title>Parth S Talpada | B.Pharm Undergraduate & Tech Enthusiast</title>
+  <meta name="description" content="Official Portfolio of Parth S Talpada — 3rd-Year B.Pharm Student at Sardar Patel College of Pharmacy & AI and Digital Operations Intern at Kalpene Global." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
-    /* 1. Base Navbar Fix (Applies to all) */
-    .navbar {
-      height: 85px !important;
-      align-items: center !important;
-      padding-top: 10px !important; 
-    }
-    
-    .nav-profile-img {
-      width: 40px !important;
-      height: 40px !important;
-      min-width: 40px !important;
-      max-width: 40px !important;
-      object-fit: cover !important;
-      border-radius: 50% !important;
-      margin-top: 5px !important; 
-      border: 2px solid #4361ee !important;
+    /* ================= PROFESSIONAL THEME BACKGROUNDS ================= */
+    html.dark body {
+      background-color: #050811;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(30, 58, 138, 0.15), transparent 42%),
+        radial-gradient(circle at 85% 80%, rgba(15, 118, 110, 0.10), transparent 45%);
+      color: #f8fafc;
     }
 
-    /* 2. Laptop and Desktop ONLY Fix */
-    @media (min-width: 769px) {
-      .navbar {
-        height: 90px !important;
-        padding-top: 15px !important; 
-      }
-      .nav-profile-img {
-        margin-top: 10px !important;
-      }
+    html:not(.dark) body {
+      background-color: #f1f5f9;
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(226, 232, 240, 0.85), transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(209, 250, 229, 0.35), transparent 50%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+      color: #0f172a;
     }
 
-    /* 3. Mobile Footer Fix (Leaves Mobile exactly as it is now) */
-    @media (max-width: 768px) {
-      .footer-container {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 35px !important;
-      }
-      .footer-brand {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px !important; 
-      }
-      .footer-brand p {
-        margin: 0 !important;
-        line-height: 1.6 !important;
-      }
+    /* ================= INTERACTIVE LIQUID GLASS CARDS (LOCKED) ================= */
+    .liquid-glass {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.28s ease;
+    }
+
+    .liquid-glass > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    html.dark .liquid-glass {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.72) 0%, rgba(9, 13, 24, 0.62) 100%);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 20px 45px -15px rgba(0, 0, 0, 0.7),
+        inset 0 1px 1.5px rgba(255, 255, 255, 0.16);
+    }
+
+    html:not(.dark) .liquid-glass {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.86) 0%, rgba(248, 250, 252, 0.76) 100%);
+      backdrop-filter: blur(22px) saturate(170%);
+      -webkit-backdrop-filter: blur(22px) saturate(170%);
+      border: 1px solid rgba(15, 23, 42, 0.10);
+      box-shadow:
+        0 14px 34px -12px rgba(15, 23, 42, 0.08),
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+    }
+
+    /* Subtle Cursor Specular Reflection (Never hides text) */
+    .liquid-glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        380px circle at var(--card-x, -200px) var(--card-y, -200px),
+        rgba(255, 255, 255, 0.05),
+        transparent 50%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    html:not(.dark) .liquid-glass::before {
+      background: radial-gradient(
+        380px circle at var(--card-x, -200px) var(--card-y, -200px),
+        rgba(15, 23, 42, 0.03),
+        transparent 50%
+      );
+    }
+
+    .liquid-glass:hover::before {
+      opacity: 1;
+    }
+
+    html.dark .liquid-glass:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    html:not(.dark) .liquid-glass:hover {
+      border-color: rgba(15, 23, 42, 0.20);
+    }
+
+    /* ================= LIQUID GLASS BUTTONS & PILLS (LOCKED) ================= */
+    .liquid-btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+    }
+
+    html.dark .liquid-btn {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow:
+        0 8px 22px -6px rgba(0, 0, 0, 0.55),
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.32),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.35);
+      color: #f8fafc;
+    }
+
+    html:not(.dark) .liquid-btn {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(241, 245, 249, 0.78) 100%);
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      box-shadow:
+        0 6px 18px -6px rgba(15, 23, 42, 0.12),
+        inset 0 2px 3px rgba(255, 255, 255, 1),
+        inset 0 -1px 2px rgba(15, 23, 42, 0.06);
+      color: #0f172a;
+    }
+
+    .liquid-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .liquid-btn:active {
+      transform: translateY(0px) scale(0.97);
+    }
+
+    .liquid-btn-primary {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.90) 100%) !important;
+      border: 1px solid rgba(167, 243, 208, 0.65) !important;
+      box-shadow:
+        0 10px 26px -6px rgba(16, 185, 129, 0.45),
+        inset 0 2px 3px rgba(255, 255, 255, 0.50) !important;
+      color: #ffffff !important;
+    }
+
+    /* ================= REALISTIC SUN / MOON LIQUID GLASS SWITCH (LOCKED) ================= */
+    .theme-switch-track {
+      position: relative;
+      width: 92px;
+      height: 44px;
+      border-radius: 9999px;
+      cursor: pointer;
+      padding: 3px;
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html.dark .theme-switch-track {
+      background: linear-gradient(90deg, rgba(203, 213, 225, 0.16) 0%, rgba(30, 64, 175, 0.42) 100%);
+      border: 1px solid rgba(147, 197, 253, 0.38);
+      box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.45),
+        0 6px 20px -4px rgba(37, 99, 235, 0.45);
+    }
+
+    html:not(.dark) .theme-switch-track {
+      background: linear-gradient(90deg, rgba(250, 204, 21, 0.42) 0%, rgba(203, 213, 225, 0.65) 100%);
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.10),
+        0 6px 20px -4px rgba(234, 179, 8, 0.38);
+    }
+
+    .theme-switch-thumb {
+      position: relative;
+      width: 50px;
+      height: 36px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background 0.45s ease,
+                  box-shadow 0.45s ease,
+                  border-color 0.45s ease;
+      overflow: hidden;
+    }
+
+    html.dark .theme-switch-thumb {
+      transform: translateX(34px);
+      background: radial-gradient(circle at 35% 25%, #3b82f6 0%, #1d4ed8 55%, #1e3a8a 100%);
+      border: 1.5px solid rgba(191, 219, 254, 0.78);
+      box-shadow:
+        0 0 18px rgba(59, 130, 246, 0.8),
+        inset 0 2px 4px rgba(255, 255, 255, 0.75),
+        inset 0 -2px 4px rgba(15, 23, 42, 0.55);
+    }
+
+    html:not(.dark) .theme-switch-thumb {
+      transform: translateX(0px);
+      background: radial-gradient(circle at 40% 25%, #fde047 0%, #eab308 60%, #ca8a04 100%);
+      border: 1.5px solid rgba(254, 249, 195, 0.95);
+      box-shadow:
+        0 0 18px rgba(250, 204, 21, 0.85),
+        inset 0 2px 4px rgba(255, 255, 255, 0.92),
+        inset 0 -2px 4px rgba(161, 98, 7, 0.4);
+    }
+
+    .theme-switch-thumb::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 12%;
+      right: 12%;
+      height: 11px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
+
+    .sun-svg, .moon-svg {
+      position: absolute;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+    }
+
+    html.dark .sun-svg {
+      opacity: 0;
+      transform: scale(0.3) rotate(-90deg);
+    }
+    html.dark .moon-svg {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    html:not(.dark) .sun-svg {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    html:not(.dark) .moon-svg {
+      opacity: 0;
+      transform: scale(0.3) rotate(90deg);
+    }
+
+    /* Certificate Eye Button — High-Contrast Dark Glass */
+    .cert-eye-glass {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(30, 41, 59, 0.85) 100%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+      color: #ffffff !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+    }
+    .cert-eye-glass:hover {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.90) 100%) !important;
+      transform: scale(1.1);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.15);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.45);
+      border-radius: 9999px;
     }
   </style>
 </head>
-<body>
 
-  <canvas id="bg-canvas"></canvas>
-  <div class="bg-overlay"></div>
+<body class="font-sans antialiased selection:bg-emerald-600 selection:text-white min-h-screen relative overflow-x-hidden transition-colors duration-500">
 
-  <nav id="navbar" class="navbar" role="navigation">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo" id="nav-logo-link">
-        <img src="assets/profile.png" alt="Parth Talpada" class="nav-profile-img" onerror="this.style.display='none'">
-        <span class="logo-text">Parth Sanjaybhai Talpada</span>
+  <!-- ================= INTERACTIVE STARFIELD & TECH BACKGROUND CANVAS ================= -->
+  <canvas id="tech-bg-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <!-- ================= FLOATING LIQUID GLASS NAVBAR (WIDE-SCREEN FILLED) ================= -->
+  <header class="sticky top-3 z-50 w-[94%] max-w-[1480px] mx-auto">
+    <div class="liquid-glass rounded-2xl px-4 sm:px-7 h-16 flex items-center justify-between">
+      
+      <!-- Brand Identity -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl liquid-btn flex items-center justify-center font-extrabold text-sm tracking-tight text-emerald-600 dark:text-emerald-400">
+          PT
+        </div>
+        <div>
+          <span class="font-bold text-sm sm:text-base tracking-tight block leading-none text-slate-900 dark:text-white">Parth S Talpada</span>
+          <span class="font-mono text-[11px] text-slate-600 dark:text-slate-400">parthtech.dev</span>
+        </div>
       </a>
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#certificates" class="nav-link">Certificates</a></li>
-        <li><a href="#connect" class="nav-link nav-cta">Connect</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    
-    <div class="mobile-menu" id="mobile-menu" role="menu" aria-hidden="true">
-      <a href="#home" class="mobile-link" role="menuitem">Home</a>
-      <a href="#projects" class="mobile-link" role="menuitem">Projects</a>
-      <a href="#certificates" class="mobile-link" role="menuitem">Certificates</a>
-      <a href="#connect" class="mobile-link" role="menuitem">Connect</a>
-    </div>
-  </nav>
 
-  <section id="home" class="hero-section">
-    <div class="shape shape-torus" aria-hidden="true"></div>
-    <div class="shape shape-cube" aria-hidden="true"></div>
-    <div class="shape shape-sphere" aria-hidden="true"></div>
-    <div class="shape shape-gem" aria-hidden="true"></div>
+      <!-- Desktop Navigation Pills -->
+      <nav class="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-slate-200/70 dark:bg-slate-900/60 border border-slate-300/80 dark:border-white/10 backdrop-blur-md text-xs font-semibold text-slate-800 dark:text-slate-200">
+        <a href="#about" class="px-4 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 transition">About</a>
+        <a href="#skills" class="px-4 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 transition">Skills</a>
+        <a href="#projects" class="px-4 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 transition">Projects</a>
+        <a href="#experience" class="px-4 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 transition">Experience</a>
+        <a href="#certificates" class="px-4 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 transition">Certificates (19)</a>
+        <a href="#contact" class="px-4 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 transition">Connect</a>
+      </nav>
 
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-badge" id="hero-badge">
-          <i class="bi bi-person-circle"></i>
-          🎓 3rd year B.Pharm Student @ GTU &nbsp;|&nbsp; 💻 Tech Consultant (Intern) @ Kalpene Global
+      <!-- Right Controls: Locked Sun/Moon Switch + Resume + Mobile Menu -->
+      <div class="flex items-center gap-2.5 sm:gap-3.5">
+        
+        <!-- Realistic Liquid Glass Sun/Moon Toggle Switch (Locked) -->
+        <button id="theme-toggle" type="button" aria-label="Toggle Light and Dark Mode" class="theme-switch-track" title="Switch Theme">
+          <div class="theme-switch-thumb">
+            <!-- Filled Radiant Sun (Light Mode) -->
+            <svg class="sun-svg w-5 h-5 text-white drop-shadow" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="5" fill="currentColor" />
+              <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+                <line x1="12" y1="2" x2="12" y2="4.2" />
+                <line x1="12" y1="19.8" x2="12" y2="22" />
+                <line x1="2" y1="12" x2="4.2" y2="12" />
+                <line x1="19.8" y1="12" x2="22" y2="12" />
+                <line x1="4.93" y1="4.93" x2="6.5" y2="6.5" />
+                <line x1="17.5" y1="17.5" x2="19.07" y2="19.07" />
+                <line x1="19.07" y1="4.93" x2="17.5" y2="6.5" />
+                <line x1="6.5" y1="17.5" x2="4.93" y2="19.07" />
+              </g>
+            </svg>
+
+            <!-- Filled Crescent Moon + 2 Stars (Dark Mode) -->
+            <svg class="moon-svg w-5 h-5 text-white drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.5 3.2C9.8 3.7 6.2 7.7 6.2 12.5C6.2 17.6 10.4 21.8 15.5 21.8C17.9 21.8 20.1 20.9 21.7 19.3C17.4 19.6 13.7 16.3 13.7 12C13.7 8.4 15.9 5.3 19.1 4.1C17.7 3.5 16.1 3.1 14.5 3.2Z" />
+              <path d="M19.5 8.2L20.1 9.7L21.6 10.3L20.1 10.9L19.5 12.4L18.9 10.9L17.4 10.3L18.9 9.7L19.5 8.2Z" />
+              <path d="M16.2 6.0L16.5 6.8L17.3 7.1L16.5 7.4L16.2 8.2L15.9 7.4L15.1 7.1L15.9 6.8L16.2 6.0Z" />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Navbar Download Resume Button -->
+        <a href="./P%20S%20Talpada%20CV%20.pdf" download="P S Talpada CV .pdf" target="_blank" class="resume-download-link hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold liquid-btn liquid-btn-primary">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" aria-label="Open Menu" class="md:hidden p-2.5 rounded-xl liquid-btn">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Glass Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden mt-2 liquid-glass rounded-2xl p-4 space-y-2 text-sm font-semibold">
+      <a href="#about" class="mobile-link block px-3 py-2 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10">About Me</a>
+      <a href="#skills" class="mobile-link block px-3 py-2 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10">Skills & Tools</a>
+      <a href="#projects" class="mobile-link block px-3 py-2 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10">Projects</a>
+      <a href="#experience" class="mobile-link block px-3 py-2 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10">Experience</a>
+      <a href="#certificates" class="mobile-link block px-3 py-2 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10">Certificates (19)</a>
+      <a href="#education" class="mobile-link block px-3 py-2 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10">Education</a>
+      <a href="#contact" class="mobile-link block px-3 py-2 rounded-xl hover:bg-slate-200/50 dark:hover:bg-white/10">Connect</a>
+      <a href="./P%20S%20Talpada%20CV%20.pdf" download="P S Talpada CV .pdf" target="_blank" class="resume-download-link flex items-center justify-center gap-2 w-full py-2.5 rounded-xl liquid-btn liquid-btn-primary text-xs font-bold mt-2">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>Download Resume</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT (WIDE-SCREEN RESPONSIVE CONTAINER) ================= -->
+  <main id="home" class="relative z-10 w-[94%] max-w-[1480px] mx-auto pt-8 pb-24 space-y-24">
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="pt-4 lg:pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Left Column: Intro & Liquid Glass Buttons -->
+      <div class="lg:col-span-7 xl:col-span-8 space-y-6 text-center lg:text-left">
+        
+        <!-- Top Status Pill -->
+        <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-4 py-1.5 rounded-full liquid-glass text-xs font-semibold text-slate-800 dark:text-slate-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span>🎓 3rd-Year B.Pharm Student @ SPCOP (GTU)</span>
+          <span class="opacity-40">|</span>
+          <span class="text-emerald-700 dark:text-emerald-400 font-bold">💼 AI & Digital Ops Intern @ Kalpene Global</span>
         </div>
 
-<h1 class="hero-heading">
-  Pharmacy Undergraduate Focused on <br /><span class="gradient-text">Technology and Real World Skills</span>
-</h1>
+        <!-- Professional Executive Headline -->
+        <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.12] text-slate-900 dark:text-white">
+          Pharmacy Undergraduate <br class="hidden sm:inline" />
+          <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
+            Driven by Technology & Real-World Impact.
+          </span>
+        </h1>
 
-        <p class="hero-subtext" id="hero-subtext">
-          Interested In Technology and Learn Real-world Skills. I am passionate about exploring the intersection of pharmacy, technology, and real-world applications. My goal is to leverage my skills to contribute to innovative solutions in healthcare and beyond. I am always eager to learn, collaborate, and make a positive impact through my work. 
+        <!-- Authentic Factual Summary (Professional Phrasing) -->
+        <p class="text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-3xl mx-auto lg:mx-0 leading-relaxed font-normal">
+          Driven by a long-standing passion for technology, I am a 3rd-year Bachelor of Pharmacy student at <strong class="text-slate-900 dark:text-white font-semibold">Sardar Patel College of Pharmacy</strong> dedicated to exploring and applying practical digital solutions. From collaborating with 8th-semester seniors on the technical execution of their research project during my 4th semester to building campus digital tools and managing digital media operations at <strong class="text-slate-900 dark:text-white font-semibold">Kalpene Global</strong>, I bring curiosity, speed, and execution to every initiative.
         </p>
 
-        <div class="hero-buttons" id="hero-buttons">
-          <a href="#projects" class="btn-primary">
-            <i class="bi bi-braces-asterisk"></i> View Projects
-            <i class="bi bi-arrow-right"></i>
+        <!-- Interactive Liquid Glass Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+          <a href="#projects" class="liquid-btn liquid-btn-primary px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2.5">
+            <span>View Projects</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+
+          <!-- Hero Download Resume Button -->
+          <a href="./P%20S%20Talpada%20CV%20.pdf" download="P S Talpada CV .pdf" target="_blank" class="resume-download-link liquid-btn px-5 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2">
+            <i data-lucide="file-down" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+            <span>Download Resume</span>
+          </a>
+
+          <!-- GitHub Button -->
+          <a href="https://github.com/talpadaparths" target="_blank" rel="noopener" aria-label="GitHub Profile" class="liquid-btn w-12 h-12 rounded-full inline-flex items-center justify-center text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400" title="GitHub Profile">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+          </a>
+
+          <!-- LinkedIn Button -->
+          <a href="https://www.linkedin.com/in/parth-s-talpada" target="_blank" rel="noopener" aria-label="LinkedIn Profile" class="liquid-btn w-12 h-12 rounded-full inline-flex items-center justify-center text-[#0A66C2] dark:text-sky-400" title="LinkedIn Profile">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
+          </a>
+
+          <!-- Email Button -->
+          <a href="mailto:talpadaparth1@gmail.com" aria-label="Email Me" class="liquid-btn w-12 h-12 rounded-full inline-flex items-center justify-center text-emerald-600 dark:text-emerald-400" title="Email Me">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
           </a>
         </div>
 
-        <div class="scroll-indicator">
-          <span>SCROLL DOWN</span>
-          <div class="scroll-mouse"><div class="scroll-dot"></div></div>
-          <i class="bi bi-arrow-down"></i>
+        <!-- Quick Highlights Bento Strip -->
+        <div class="pt-4 grid grid-cols-3 gap-3 sm:gap-5 max-w-3xl">
+          <div class="liquid-glass rounded-2xl p-4 sm:p-5 text-left">
+            <p class="text-xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">3× 1st</p>
+            <p class="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 font-medium mt-1">Prize Winner (INDO-US, NPW & Aikyam)</p>
+          </div>
+          <div class="liquid-glass rounded-2xl p-4 sm:p-5 text-left">
+            <p class="text-xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">4+</p>
+            <p class="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 font-medium mt-1">Real-World Tech & Campus Projects</p>
+          </div>
+          <div class="liquid-glass rounded-2xl p-4 sm:p-5 text-left">
+            <p class="text-xl sm:text-3xl font-extrabold text-sky-600 dark:text-sky-400">30+</p>
+            <p class="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 font-medium mt-1">Awards & Certificates</p>
+          </div>
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="profile-image-wrapper">
-          <div class="profile-glow"></div>
-          <img src="assets/profile.png" alt="Parth Talpada Profile" class="profile-img" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="section expertise-section">
-    <div class="floating-shapes-sm" aria-hidden="true">
-      <div class="sm-shape sm-torus"></div>
-      <div class="sm-shape sm-sphere"></div>
-    </div>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Technical <span class="gradient-text">Projects</span></h2>
-        <div class="title-line"><span></span><i class="bi bi-braces"></i><span></span></div>
-        <p class="section-subtitle">Conceptualized and developed architectures showcasing technical logic and healthcare informatics.</p>
-      </div>
-
-      <div class="expertise-grid">
-        <div class="expertise-card glass-card">
-          <div class="expertise-card-header">
-            <div class="expertise-icon tech-icon"><i class="bi bi-heart-pulse"></i></div>
-            <div>
-              <h3 class="expertise-title">RxPulse Technology</h3>
-              <p class="expertise-subtitle">Healthcare Informatics Project</p>
-            </div>
-            <span class="status-pill closed-pill">Closed Project</span>
-          </div>
-          <p class="expertise-desc">
-            Designed and conceptualized RxPulse, focusing on clinical relevance, healthcare data structures, and logical solution architecture for modern health variables. (Currently not active).
-          </p>
-        </div>
-
-        <div class="expertise-card glass-card">
-          <div class="expertise-card-header">
-            <div class="expertise-icon pharma-icon"><i class="bi bi-cpu"></i></div>
-            <div>
-              <h3 class="expertise-title pharma-title">OptiTool AI</h3>
-              <p class="expertise-subtitle">Logic & Automation</p>
-            </div>
-            <span class="status-pill closed-pill">Closed Project</span>
-          </div>
-          <p class="expertise-desc">
-            Engineered backend logic using Python and OpenCV. Designed algorithmic frameworks for facial recognition processing and automated system optimization. (Currently not active).
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="certificates" class="section cert-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Awards & <span class="gradient-text">Certifications</span></h2>
-        <div class="title-line"><span></span><i class="bi bi-award-fill"></i><span></span></div>
-        <p class="section-subtitle">A showcase of my achievements, continuous learning, and active participation across Healthcare, Technology, and Extracurriculars.</p>
-      </div>
-
-      <div class="cert-carousel-wrapper">
-        <button class="carousel-btn prev-btn" id="cert-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
-        
-        <div class="cert-carousel-container" id="cert-carousel-container">
-          <div class="cert-card glass-card active">
-            <div class="cert-image-wrap">
-              <img src="assets/cert1.jpg" alt="INDO-US Conference">
-              <button class="preview-btn" data-img="assets/cert1.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-1"><i class="bi bi-trophy-fill"></i> 1st Prize</span></div>
-              <h3>INDO-US International Conference</h3>
-              <p>Secured 1st Prize in Poster Presentation on Nanotechnology and Drug Design.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card next">
-            <div class="cert-image-wrap">
-              <img src="assets/cert2.jpg" alt="National PV Week">
-              <button class="preview-btn" data-img="assets/cert2.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-1"><i class="bi bi-trophy-fill"></i> 1st Position</span></div>
-              <h3>National Pharmacovigilance Week</h3>
-              <p>Secured 1st Position in the National Infographics Competition.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert3.jpg" alt="NIPAM IPR">
-              <button class="preview-btn" data-img="assets/cert3.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-2"><i class="bi bi-patch-check-fill"></i> Govt. Recognized</span></div>
-              <h3>NIPAM IPR Certification</h3>
-              <p>Successfully participated in the Intellectual Property Rights Awareness Mission.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert4.png" alt="Google Ads">
-              <button class="preview-btn" data-img="assets/cert4.png"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-2"><i class="bi bi-google"></i> Certification</span></div>
-              <h3>Google Ads Measurement</h3>
-              <p>Official Google certification demonstrating proficiency in digital metrics.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert6.jpg" alt="be10x AI">
-              <button class="preview-btn" data-img="assets/cert6.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-2"><i class="bi bi-robot"></i> Workshop</span></div>
-              <h3>AI Tools & ChatGPT Workshop</h3>
-              <p>Hands-on workshop focused on leveraging advanced AI tools by be10x.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert12.jpg" alt="LinkedIn Generative AI">
-              <button class="preview-btn" data-img="assets/cert12.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-2"><i class="bi bi-linkedin"></i> Learning</span></div>
-              <h3>What Is Generative AI?</h3>
-              <p>Completed foundational course on Generative AI principles via LinkedIn Learning.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert5.jpg" alt="Scouts & Guides">
-              <button class="preview-btn" data-img="assets/cert5.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-compass-fill"></i> Leadership</span></div>
-              <h3>Sea Scouts & Guides Camp</h3>
-              <p>Active participation in the Gujarat State Bharat Scouts & Guides camp.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert7.jpg" alt="Ethical Hacking">
-              <button class="preview-btn" data-img="assets/cert7.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-shield-lock-fill"></i> Cybersecurity</span></div>
-              <h3>Ethical Hacking Workshop</h3>
-              <p>Completed a 2-Hour intensive Ethical Hacking & Cybersecurity session.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert13.jpg" alt="Malware Webinar">
-              <button class="preview-btn" data-img="assets/cert13.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-shield-check"></i> Tech</span></div>
-              <h3>Malware Protection Webinar</h3>
-              <p>Attended expert-led session on digital threat mitigation strategies.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert9.jpg" alt="Aikyam Oral">
-              <button class="preview-btn" data-img="assets/cert9.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-mic-fill"></i> Presentation</span></div>
-              <h3>Oral Presentation - Aikyam 3.0</h3>
-              <p>Delivered an impactful oral presentation at the National Pharmafest.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert8.jpg" alt="Aikyam Film">
-              <button class="preview-btn" data-img="assets/cert8.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-camera-video-fill"></i> Creative</span></div>
-              <h3>Film Making - Aikyam 3.0</h3>
-              <p>Participated in the Technical Film Making event at National Pharmafest.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card">
-            <div class="cert-image-wrap">
-              <img src="assets/cert10.jpg" alt="PV 1min Video">
-              <button class="preview-btn" data-img="assets/cert10.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-play-circle-fill"></i> Media</span></div>
-              <h3>1-Minute Video Making</h3>
-              <p>Created digital media content for National Pharmacovigilance Week 2025.</p>
-            </div>
-          </div>
-          <div class="cert-card glass-card prev">
-            <div class="cert-image-wrap">
-              <img src="assets/cert11.jpg" alt="PV Outreach">
-              <button class="preview-btn" data-img="assets/cert11.jpg"><i class="bi bi-eye-fill"></i></button>
-            </div>
-            <div class="cert-content">
-              <div class="cert-pills"><span class="cert-pill tier-3"><i class="bi bi-people-fill"></i> Outreach</span></div>
-              <h3>Community Pharmacy Outreach</h3>
-              <p>Actively engaged in community awareness during Pharmacovigilance Week.</p>
-            </div>
-          </div>
-          </div>
-        
-        <button class="carousel-btn next-btn" id="cert-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
-      </div>
-
-      <div id="image-modal" class="cert-modal">
-        <span class="close-modal" id="close-modal">&times;</span>
-        <img class="modal-content" id="modal-img">
-      </div>
-    </div>
-  </section>
-
-  <section id="connect" class="section connect-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
-        <div class="title-line"><span></span><i class="bi bi-chat-dots-fill"></i><span></span></div>
-        <p class="section-subtitle">I'm always open to meaningful conversations, collaborations, and opportunities that create impact in healthcare and technology.</p>
-      </div>
-
-      <div class="connect-grid">
-        <div class="connect-info glass-card">
-          <h3>Get In Touch</h3>
-          <p class="connect-desc">Whether you have a project in mind, want to collaborate, or just want to say hello — I'd love to hear from you!</p>
+      <!-- Right Column: Interactive Liquid Glass Profile Showcase -->
+      <div class="lg:col-span-5 xl:col-span-4">
+        <div class="liquid-glass rounded-3xl p-5 sm:p-6 max-w-md mx-auto lg:max-w-none space-y-5">
           
-          <a href="mailto:talpadaparth1@gmail.com" class="connect-card-item">
-            <div class="connect-icon"><i class="bi bi-envelope-fill"></i></div>
-            <div class="connect-text">
-              <strong>Email</strong>
-              <span>talpadaparth1@gmail.com</span>
-              <small>Drop me an email anytime!</small>
+          <!-- Profile Photo Frame -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/4.2] bg-slate-900 border border-slate-300/60 dark:border-white/15">
+            <img
+              id="hero-portrait"
+              src="./profile.png"
+              onerror="if(this.src.indexOf('file:///')===-1){this.src='file:///P:/P%20S%20Talpada%20New/1%20Document%20(PSTalpada)/Portfolio%20with%20Argon%204/profile.png';}else{this.onerror=null;this.src='https://ui-avatars.com/api/?name=Parth+Talpada&background=0f172a&color=10b981&size=512&font-size=0.33&bold=true';}"
+              alt="Parth S Talpada"
+              class="w-full h-full object-cover object-top"
+            />
+            <div class="absolute bottom-3 left-3 right-3 rounded-xl px-3.5 py-2.5 bg-slate-900/85 backdrop-blur-md border border-white/20 text-white flex items-center justify-between text-xs">
+              <span class="flex items-center gap-1.5 font-semibold">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i>
+                Kheda, Gujarat, India
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/25 text-emerald-300 font-mono text-[10px] font-semibold">
+                B.Pharm '28
+              </span>
             </div>
-          </a>
+          </div>
 
-          <a href="https://www.linkedin.com/in/parth-s-talpada-90508632a" target="_blank" rel="noopener noreferrer" class="connect-card-item">
-            <div class="connect-icon"><i class="bi bi-linkedin"></i></div>
-            <div class="connect-text">
-              <strong>LinkedIn</strong>
-              <span>Parth S Talpada</span>
-              <small>Let's connect professionally!</small>
+          <!-- Real-World Tech + Pharmacy Card -->
+          <div class="rounded-2xl p-4 bg-slate-100/90 dark:bg-slate-900/60 border border-slate-200/90 dark:border-white/10 space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-emerald-700 dark:text-emerald-400 font-bold uppercase">What Drives Me</span>
+              <span class="text-slate-600 dark:text-slate-400 font-semibold">Pharmacy × Tech</span>
             </div>
-          </a>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              Always ready to take on technology-driven initiatives—from digitizing college attendance workflows to creating scientific visual communications and AI-assisted tools.
+            </p>
+          </div>
+        </div>
+      </div>
 
-          <div class="connect-card-item">
-            <div class="connect-icon"><i class="bi bi-geo-alt-fill"></i></div>
-            <div class="connect-text">
-              <strong>Location</strong>
-              <span>Gujarat, India</span>
-              <small>Available for remote opportunities.</small>
+    </section>
+
+    <!-- ================= ABOUT ME SECTION ================= -->
+    <section id="about" class="scroll-mt-24 space-y-6">
+      <div>
+        <p class="text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold">01 / About Me</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">Curious Learner. Practical Problem Solver.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-8 liquid-glass rounded-3xl p-6 sm:p-8 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-bold">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+            <span>My Journey in Pharmacy & Technology</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Bridging Academic Pharmacy with Practical Technology Solutions</h3>
+          <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            With a strong foundation in technology and digital workflows, my curiosity for modern tools has grown alongside my <strong class="text-slate-900 dark:text-white">Bachelor of Pharmacy (B.Pharm)</strong> studies at <strong class="text-slate-900 dark:text-white">Sardar Patel College of Pharmacy, Bakrol</strong>. Whenever an opportunity arises involving technology, digital systems, or visual communication, I am always ready to step in and contribute.
+          </p>
+          <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            During my <strong class="text-slate-900 dark:text-white">4th semester</strong>, I collaborated directly with <strong class="text-slate-900 dark:text-white">8th-semester senior students</strong> to handle the technical implementation of their project. Later, recognizing the manual paperwork challenges faced by students and faculty for daily attendance, I engineered a functional <strong class="text-slate-900 dark:text-white">College Attendance Portal</strong> backed by a <strong class="text-slate-900 dark:text-white">Supabase</strong> database (currently under review by college management).
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 liquid-glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl liquid-btn flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">How I Add Value</h3>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong class="text-slate-900 dark:text-white">Hands-On Tech Support:</strong> Always ready to solve technical challenges for college projects, labs, and teams.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong class="text-slate-900 dark:text-white">Scientific & Visual Presentation:</strong> 3× First-Prize winner across international and national pharmacy conferences and fests.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+                <span><strong class="text-slate-900 dark:text-white">AI Workflow Efficiency:</strong> Practical user of Gemini, ChatGPT, and Google AI Studio to speed up research, presentations, and operations.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS & PRACTICAL TOOLS ================= -->
+    <section id="skills" class="scroll-mt-24 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold">02 / Capabilities</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">Practical Skills & Tools</h2>
+        </div>
+        <p class="text-xs font-medium text-slate-600 dark:text-slate-400">Focused on tools that drive academic, professional, and operational impact</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1: AI & Smart Productivity -->
+        <div class="liquid-glass rounded-3xl p-6 space-y-4">
+          <div class="w-11 h-11 rounded-2xl liquid-btn flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">AI Tools & Productivity</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400">Research & Workflow Acceleration</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Google Gemini</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">ChatGPT</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Google AI Studio</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">AI Tool Integration</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Presentation & Scientific Design -->
+        <div class="liquid-glass rounded-3xl p-6 space-y-4">
+          <div class="w-11 h-11 rounded-2xl liquid-btn flex items-center justify-center text-sky-600 dark:text-sky-400">
+            <i data-lucide="presentation" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">Presentations & Design</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400">Conferences, Posters & Outreach</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Presentation Design</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Microsoft PowerPoint</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Canva</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Scientific Posters & Infographics</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Video & Audio Editing -->
+        <div class="liquid-glass rounded-3xl p-6 space-y-4">
+          <div class="w-11 h-11 rounded-2xl liquid-btn flex items-center justify-center text-amber-600 dark:text-amber-400">
+            <i data-lucide="film" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">Video & Audio Editing</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400">Educational & Media Production</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Wondershare Filmora</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">VN Video Editor</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">MS Clipchamp</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">InShot</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Audio Editing</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Digital Operations & Tech Utilities -->
+        <div class="liquid-glass rounded-3xl p-6 space-y-4">
+          <div class="w-11 h-11 rounded-2xl liquid-btn flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+            <i data-lucide="globe" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">Digital Ops & Web Tools</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400">Platforms & Project Setup</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Google Workspace</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Zoho Mail Setup</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Supabase</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">GitHub & VS Code</span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold liquid-btn">Google Ads Metrics</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= TECHNICAL PROJECTS ================= -->
+    <section id="projects" class="scroll-mt-24 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold">03 / Built Solutions</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">Technical Projects</h2>
+        </div>
+        <p class="text-xs font-medium text-slate-600 dark:text-slate-400">Practical applications built for campus workflows, AI discovery, and healthcare</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- 1. Personal Portfolio Website -->
+        <div class="liquid-glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <div class="w-12 h-12 rounded-2xl liquid-btn flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <i data-lucide="layout-template" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                ● Live Project
+              </span>
+            </div>
+            <div>
+              <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Personal Portfolio Website (parthtech.dev)</h3>
+              <p class="text-xs font-mono text-slate-600 dark:text-slate-400 mt-0.5">Personal Web Portfolio</p>
+            </div>
+            <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              Independently conceptualized, structured, and deployed my personal portfolio website (<strong class="text-slate-900 dark:text-white">parthtech.dev</strong>) to showcase my academic journey in pharmacy, technical projects, and verified certifications.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">HTML5 / Tailwind</span>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">GitHub</span>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Responsive UI</span>
+            </div>
+            <a href="https://parthtech.dev" target="_blank" rel="noopener" class="text-xs font-bold text-emerald-700 dark:text-emerald-400 inline-flex items-center gap-1 hover:underline">
+              <span>parthtech.dev</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. College Attendance Portal -->
+        <div class="liquid-glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <div class="w-12 h-12 rounded-2xl liquid-btn flex items-center justify-center text-sky-600 dark:text-sky-400">
+                <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/35">
+                ⏳ Under College Management Review
+              </span>
+            </div>
+            <div>
+              <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">College Attendance Portal</h3>
+              <p class="text-xs font-mono text-slate-600 dark:text-slate-400 mt-0.5">Campus Digitalization & Database System</p>
+            </div>
+            <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              Built a fully functional digital attendance portal integrated with a <strong class="text-slate-900 dark:text-white">Supabase</strong> backend database to eliminate manual paperwork headaches for college students and faculty members. Currently under review by college management prior to campus-wide implementation.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Supabase Database</span>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Paperless Workflow</span>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Student & Faculty Portal</span>
+          </div>
+        </div>
+
+        <!-- 3. OptiTool AI -->
+        <div class="liquid-glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <div class="w-12 h-12 rounded-2xl liquid-btn flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-500/30">
+                Closed Project
+              </span>
+            </div>
+            <div>
+              <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">OptiTool AI</h3>
+              <p class="text-xs font-mono text-slate-600 dark:text-slate-400 mt-0.5">Intelligent AI Software Recommendation Engine</p>
+            </div>
+            <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              Built using <strong class="text-slate-900 dark:text-white">Google AI Studio</strong> powered by <strong class="text-slate-900 dark:text-white">Gemini 2.0</strong> and <strong class="text-slate-900 dark:text-white">Google Search</strong> to help users stop guessing which AI tool to use.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-300 pt-1">
+              <li class="flex items-center gap-1.5"><span>🎯</span> <strong>Contextual Search:</strong> Describe any task</li>
+              <li class="flex items-center gap-1.5"><span>🔍</span> <strong>Need Analysis:</strong> Evaluates user prompt</li>
+              <li class="flex items-center gap-1.5"><span>📊</span> <strong>Match Score:</strong> % fit rating (e.g. 98%)</li>
+              <li class="flex items-center gap-1.5"><span>⚖️</span> <strong>Pros, Cons & Pricing:</strong> Free / Open / Paid</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Google AI Studio</span>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Gemini 2.0</span>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Google Search Grounding</span>
+          </div>
+        </div>
+
+        <!-- 4. RxPulse Technology -->
+        <div class="liquid-glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <div class="w-12 h-12 rounded-2xl liquid-btn flex items-center justify-center text-teal-600 dark:text-teal-400">
+                <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-500/30">
+                Closed Project
+              </span>
+            </div>
+            <div>
+              <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">RxPulse Technology</h3>
+              <p class="text-xs font-mono text-slate-600 dark:text-slate-400 mt-0.5">Digital Patient–Pharmacist Web Application</p>
+            </div>
+            <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              Conceptualized and developed a digital healthcare web application designed to connect patients directly with pharmacists digitally, streamlining pharmacy communication and patient guidance.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Digital Pharmacy</span>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Patient–Pharmacist Connect</span>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono liquid-btn">Web Application</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE SECTION ================= -->
+    <section id="experience" class="scroll-mt-24 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold">04 / Industry Exposure</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">Work Experience</h2>
+        </div>
+        <span class="text-xs font-mono font-semibold text-slate-600 dark:text-slate-400">Kalpene Global Private Limited • 11 Months</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Role 1 -->
+        <div class="liquid-glass rounded-3xl p-6 sm:p-7 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+              September 2026 – Present
+            </span>
+            <span class="text-xs font-mono font-medium text-slate-600 dark:text-slate-400">Kalpene Global Pvt. Ltd.</span>
+          </div>
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">AI & Digital Operations Intern</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+              Supporting daily digital operations, multimedia production, and AI-assisted workflow efficiency alongside my B.Pharm studies.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+              <span><strong class="text-slate-900 dark:text-white">Multimedia, Video & Audio Production:</strong> Design promotional flyers, presentation slide decks, social graphics, and edit audio/video content for training and outreach programs.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+              <span><strong class="text-slate-900 dark:text-white">AI Workflow & Digital Support:</strong> Implement AI tools to streamline routine operational tasks, manage Google Workspace files, and coordinate live technical sessions for webinars.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="liquid-glass rounded-3xl p-6 sm:p-7 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-sky-500/15 text-sky-700 dark:text-sky-300 border border-sky-500/30">
+              December 2025 – September 2026
+            </span>
+            <span class="text-xs font-mono font-medium text-slate-600 dark:text-slate-400">Kalpene Global Pvt. Ltd.</span>
+          </div>
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Technical Operations Intern</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+              Handled foundational digital setup, custom domain email configuration, and corporate visual design assets.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5"></i>
+              <span><strong class="text-slate-900 dark:text-white">Custom Domain & Email Setup:</strong> Managed domain integration and configured the company's custom email network via <strong class="text-slate-900 dark:text-white">Zoho Mail</strong>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5"></i>
+              <span><strong class="text-slate-900 dark:text-white">Visual Communication & Social Setup:</strong> Created corporate flyers and presentation decks while managing official LinkedIn and social channels.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= AWARDS & CERTIFICATIONS (19 ITEMS, CLEAN HEADER, 4-COL WIDE GRID) ================= -->
+    <section id="certificates" class="scroll-mt-24 space-y-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold">05 / Verified Credentials</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">Awards & Certifications</h2>
+        </div>
+
+        <!-- Interactive Category Filter Pills -->
+        <div class="flex flex-wrap gap-2" id="cert-filter-bar">
+          <button data-filter="all" class="cert-filter-btn liquid-btn liquid-btn-primary px-4 py-2 rounded-full text-xs font-bold">All (19)</button>
+          <button data-filter="winner" class="cert-filter-btn liquid-btn px-4 py-2 rounded-full text-xs font-bold">🏆 Winners (4)</button>
+          <button data-filter="pharma" class="cert-filter-btn liquid-btn px-4 py-2 rounded-full text-xs font-bold">⚕️ Pharmacy & IPR (7)</button>
+          <button data-filter="tech" class="cert-filter-btn liquid-btn px-4 py-2 rounded-full text-xs font-bold">🤖 AI & Tech (5)</button>
+          <button data-filter="campus" class="cert-filter-btn liquid-btn px-4 py-2 rounded-full text-xs font-bold">🧭 Leadership & NSS (3)</button>
+        </div>
+      </div>
+
+      <!-- Dynamic Certificate Grid (4 columns on wide screens to fill horizontal space cleanly) -->
+      <div id="certificates-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+    </section>
+
+    <!-- ================= EDUCATION SECTION ================= -->
+    <section id="education" class="scroll-mt-24 space-y-6">
+      <div>
+        <p class="text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold">06 / Academic Degree</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">Education</h2>
+      </div>
+
+      <div class="liquid-glass rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl liquid-btn flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+            <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+          </div>
+          <div class="space-y-1.5">
+            <span class="inline-block px-3 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+              September 2024 – September 2028
+            </span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">Bachelor of Pharmacy (B.Pharm)</h3>
+            <p class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200">
+              Sardar Patel College of Pharmacy, Bakrol (Affiliated to Gujarat Technological University)
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              3rd-Year Undergraduate Student • Active in Scientific Poster Presentations, Pharmacovigilance Outreach, Laboratory Organization, and Campus Tech Initiatives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LET'S CONNECT SECTION (FORMSPREE INTEGRATED) ================= -->
+    <section id="contact" class="scroll-mt-24">
+      <div class="liquid-glass rounded-3xl p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left Contact Details -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <p class="text-xs font-mono uppercase tracking-widest text-emerald-700 dark:text-emerald-400 font-bold">07 / Let's Connect</p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">Get In Touch</h2>
+          </div>
+          <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            I am always open to meaningful conversations, collaborations, and opportunities across pharmacy, technology, and digital operations.
+          </p>
+
+          <div class="space-y-3.5">
+            <!-- Email -->
+            <a href="mailto:talpadaparth1@gmail.com" class="liquid-btn rounded-2xl p-4 flex items-center gap-4 w-full text-left">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <div class="overflow-hidden">
+                <p class="text-xs font-mono text-slate-500 dark:text-slate-400">Email</p>
+                <p class="text-sm font-bold text-slate-900 dark:text-white truncate">talpadaparth1@gmail.com</p>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/parth-s-talpada" target="_blank" rel="noopener" class="liquid-btn rounded-2xl p-4 flex items-center gap-4 w-full text-left">
+              <div class="w-11 h-11 rounded-xl bg-sky-500/15 border border-sky-500/30 text-[#0A66C2] dark:text-sky-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-mono text-slate-500 dark:text-slate-400">LinkedIn</p>
+                <p class="text-sm font-bold text-slate-900 dark:text-white">Parth S Talpada</p>
+              </div>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/talpadaparths" target="_blank" rel="noopener" class="liquid-btn rounded-2xl p-4 flex items-center gap-4 w-full text-left">
+              <div class="w-11 h-11 rounded-xl bg-slate-500/15 border border-slate-500/30 text-slate-900 dark:text-white flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-mono text-slate-500 dark:text-slate-400">GitHub</p>
+                <p class="text-sm font-bold text-slate-900 dark:text-white">github.com/talpadaparths</p>
+              </div>
+            </a>
+
+            <!-- Location -->
+            <div class="liquid-btn rounded-2xl p-4 flex items-center gap-4 w-full text-left">
+              <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-mono text-slate-500 dark:text-slate-400">Location</p>
+                <p class="text-sm font-bold text-slate-900 dark:text-white">Kheda, Gujarat, India</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="connect-form-wrap glass-card">
-          <h3>Send Me a Message</h3>
-          <form class="connect-form" action="https://formspree.io/f/mkolbqwg" method="POST">
-            <div class="form-row">
-              <div class="input-group">
-                <i class="bi bi-person"></i>
-                <input type="text" name="Name" placeholder="Your Name" required>
+        <!-- Right Contact Form (Wired for Formspree) -->
+        <div class="lg:col-span-7">
+          <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="rounded-2xl p-6 sm:p-8 bg-slate-100/85 dark:bg-slate-900/60 border border-slate-200/90 dark:border-white/10 space-y-4">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Send Me a Message</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono font-semibold uppercase text-slate-600 dark:text-slate-400 mb-1.5">Your Name</label>
+                <input type="text" name="name" id="contact-name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950/80 border border-slate-300 dark:border-white/15 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-500" />
               </div>
-              <div class="input-group">
-                <i class="bi bi-envelope"></i>
-                <input type="email" name="Email" placeholder="Your Email" required>
+              <div>
+                <label class="block text-xs font-mono font-semibold uppercase text-slate-600 dark:text-slate-400 mb-1.5">Your Email</label>
+                <input type="email" name="email" id="contact-email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950/80 border border-slate-300 dark:border-white/15 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-500" />
               </div>
             </div>
-            <div class="input-group">
-              <i class="bi bi-tag"></i>
-              <input type="text" name="Subject" placeholder="Purpose of Contact" required>
+            <div>
+              <label class="block text-xs font-mono font-semibold uppercase text-slate-600 dark:text-slate-400 mb-1.5">Purpose of Contact</label>
+              <input type="text" name="subject" id="contact-purpose" required placeholder="Collaboration / Pharmacy & Tech Inquiry / Networking" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950/80 border border-slate-300 dark:border-white/15 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-500" />
             </div>
-            <div class="input-group textarea-group">
-              <i class="bi bi-pencil"></i>
-              <textarea name="Message" placeholder="Your Message" rows="4" required></textarea>
+            <div>
+              <label class="block text-xs font-mono font-semibold uppercase text-slate-600 dark:text-slate-400 mb-1.5">Your Message</label>
+              <textarea name="message" id="contact-message" rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-950/80 border border-slate-300 dark:border-white/15 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-500"></textarea>
             </div>
-            <button type="submit" class="btn-submit gradient-btn">
-              <i class="bi bi-send-fill"></i> Send Message
+
+            <!-- Form Status Alert Box -->
+            <div id="form-status" class="hidden rounded-xl p-3.5 text-xs font-semibold"></div>
+
+            <button type="submit" id="contact-submit-btn" class="w-full py-3.5 px-6 rounded-full font-bold text-sm liquid-btn liquid-btn-primary flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span id="contact-submit-text">Send Message</span>
             </button>
           </form>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <footer class="footer" role="contentinfo">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="#home" class="footer-logo nav-logo">
-          <img src="assets/profile.png" alt="Parth Talpada" class="nav-profile-img" onerror="this.style.display='none'">
-          <span class="logo-text">Parth Sanjaybhai Talpada</span>
-        </a>
-        <p class="footer-tagline">Pharmacy Undergraduate | Sardar Patel College of Pharmacy</p>
-        <p class="footer-tagline-accent gradient-text">Focused on Technology and Real-world Skills</p>
       </div>
+    </section>
 
-      <div class="footer-links">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#home"><i class="bi bi-chevron-right"></i> Home</a></li>
-          <li><a href="#projects"><i class="bi bi-chevron-right"></i> Projects</a></li>
-          <li><a href="#certificates"><i class="bi bi-chevron-right"></i> Certificates</a></li>
-          <li><a href="#connect"><i class="bi bi-chevron-right"></i> Connect</a></li>
-        </ul>
-      </div>
+  </main>
 
-      <div class="footer-contact">
-        <h4>Direct Contact</h4>
-        <div class="footer-contact-items">
-          <a href="mailto:talpadaparth1@gmail.com" class="footer-contact-item">
-            <i class="bi bi-envelope-fill"></i> talpadaparth1@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/parth-s-talpada-90508632a" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
-            <i class="bi bi-linkedin"></i> linkedin.com/in/parth-s-talpada-90508632a
-          </a>
-          <div class="footer-contact-item">
-            <i class="bi bi-geo-alt-fill"></i> Gujarat, India
-          </div>
+  <!-- ================= FULL-IMAGE CERTIFICATE LIGHTBOX MODAL ================= -->
+  <div id="cert-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-xl">
+    <div class="liquid-glass rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-white/25">
+      <!-- Modal Top Bar -->
+      <div class="px-5 py-4 border-b border-slate-200 dark:border-white/15 flex items-center justify-between gap-4">
+        <div>
+          <span id="modal-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"></span>
+          <h3 id="modal-title" class="text-base sm:text-lg font-extrabold mt-0.5 text-slate-900 dark:text-white"></h3>
         </div>
+        <button id="modal-close" aria-label="Close Preview" class="liquid-btn p-2.5 rounded-full">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Full Certificate Image / Fallback Canvas Viewport -->
+      <div class="p-4 sm:p-6 overflow-auto flex-1 flex items-center justify-center bg-slate-900/60">
+        <img id="modal-img" class="max-w-full max-h-[72vh] w-auto h-auto rounded-xl shadow-2xl border border-white/15 object-contain" alt="Certificate Full View" />
+        <canvas id="modal-canvas" class="hidden max-w-full h-auto rounded-xl shadow-2xl border border-white/15"></canvas>
+      </div>
+
+      <!-- Modal Footer Description -->
+      <div class="px-5 py-3.5 border-t border-slate-200 dark:border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-700 dark:text-slate-300">
+        <p id="modal-desc"></p>
+        <span id="modal-issuer" class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0"></span>
       </div>
     </div>
+  </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 Parth S Talpada. All rights reserved.</p>
-      <p class="creator-badge" style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
-        <i class="bi bi-code-slash" style="color: var(--accent-blue);"></i> Designed & Structured independently by Parth S Talpada.
-      </p>
+  <!-- ================= FOOTER (WIDE-SCREEN FILLED) ================= -->
+  <footer class="relative z-10 border-t border-slate-200 dark:border-white/10 py-8">
+    <div class="w-[94%] max-w-[1480px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 dark:text-slate-400">
+      <div>
+        <span class="font-bold text-slate-900 dark:text-white">Parth Sanjaybhai Talpada</span>
+        <span> • Pharmacy Undergraduate | Sardar Patel College of Pharmacy</span>
+      </div>
+      <div class="font-mono">
+        © 2026 Parth S Talpada • <a href="https://parthtech.dev" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">parthtech.dev</a>
+      </div>
     </div>
   </footer>
 
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-    <i class="bi bi-arrow-up"></i>
-  </button>
+  <!-- ================= SCRIPTS: CENTRAL CONFIG, CERTIFICATES, FORMSPREE & TECH BACKGROUND ================= -->
+  <script>
+    lucide.createIcons();
 
-  <script src="script.js?v=2.1"></script>
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_UNIQUE_TOKEN_HERE"}'></script>
+    /* =========================================================================
+       ★ MASTER CONFIGURATION (ALL YOUR FILE PATHS, FORMSPREE & BG STYLE) ★
+       ========================================================================= */
+    const PORTFOLIO_CONFIG = {
+      // 1. Profile Photo Path
+      profilePhoto: "./profile.png",
+      profilePhotoLocalFallback: "file:///P:/P%20S%20Talpada%20New/1%20Document%20(PSTalpada)/Portfolio%20with%20Argon%204/profile.png",
+
+      // 2. Resume / CV Path
+      resumePath: "./P S Talpada CV .pdf",
+      resumeLocalFallback: "file:///P:/P%20S%20Talpada%20New/1%20Document%20(PSTalpada)/Portfolio%20with%20Argon%204/P%20S%20Talpada%20CV%20.pdf",
+
+      // 3. Formspree Endpoint URL (Replace YOUR_FORMSPREE_ID with your 8-character Formspree code)
+      formspreeEndpoint: "https://formspree.io/f/xzedwobp",
+
+      // 4. Tech Background Style (Choose 1, 2, 3, 4, or 5 — all keep your cursor-repelling stars!)
+      // 1 = Subtle Star Constellations + Repelling Stars (Default)
+      // 2 = Pure Minimalist Cosmos (Repelling Stars Only)
+      // 3 = Architectural Micro-Dot Matrix + Repelling Stars
+      // 4 = Interactive Cursor Ambient Halo + Repelling Stars
+      // 5 = Flowing Digital Data Waves + Repelling Stars
+      backgroundMode: 4
+    };
+
+    const heroPortrait = document.getElementById('hero-portrait');
+    if (heroPortrait) {
+      heroPortrait.src = PORTFOLIO_CONFIG.profilePhoto;
+    }
+    document.querySelectorAll('.resume-download-link').forEach(link => {
+      link.href = PORTFOLIO_CONFIG.resumePath;
+    });
+
+    /* =========================================================================
+       1. PRIORITIZED CERTIFICATES DATA (cert1 to cert19)
+       ========================================================================= */
+    const CERTIFICATES = [
+      // --- TIER 1: TOP RANKINGS & WINNERS (cert1 - cert4) ---
+      {
+        id: "cert1",
+        image: "./cert1.png",
+        category: "winner",
+        badge: "🏆 1st Prize",
+        badgeColor: "bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-500/35",
+        title: "INDO-US International Conference",
+        issuer: "Sardar Patel College of Pharmacy & APP",
+        date: "3 Feb 2026",
+        description: "Secured 1st Prize in Poster Presentation on Nanotechnology and Drug Design."
+      },
+      {
+        id: "cert2",
+        image: "./cert2.png",
+        category: "winner",
+        badge: "🏆 1st Position",
+        badgeColor: "bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-500/35",
+        title: "National Pharmacovigilance Week",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "Sep 2025",
+        description: "Secured 1st Position in the National Infographics Competition on Adverse Drug Reaction reporting."
+      },
+      {
+        id: "cert3",
+        image: "./cert3.jpg",
+        altFiles: ["./IMG_20261019_084027.jpg"],
+        category: "winner",
+        badge: "🏆 1st Prize",
+        badgeColor: "bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-500/35",
+        title: "E-Pharma Film – Aikyam 2.0",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "11–12 Nov 2024",
+        description: "Secured 1st Prize in the E-Pharma Film competition at the Aikyam 2.0 National Pharmafest."
+      },
+      {
+        id: "cert4",
+        image: "./cert4.png",
+        category: "winner",
+        badge: "🥉 3rd Position",
+        badgeColor: "bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-500/35",
+        title: "Interclass Chess Competition",
+        issuer: "SPCP Sports Cell (B.Pharm Sem 5)",
+        date: "5 Aug 2026",
+        description: "Secured 3rd Position in the Interclass Chess Tournament under the Sports Cell at SPCP."
+      },
+
+      // --- TIER 2: USEFUL IN PHARMACY, LAB, SCIENTIFIC PRESENTATION & IPR (cert5 - cert11) ---
+      {
+        id: "cert5",
+        image: "./cert5.png",
+        category: "pharma",
+        badge: "🏛️ Govt. Recognized",
+        badgeColor: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/35",
+        title: "NIPAM IPR Certification",
+        issuer: "Intellectual Property Office, Govt. of India",
+        date: "Mar 2026",
+        description: "Successfully participated in the National Intellectual Property Awareness Mission (NIPAM) program."
+      },
+      {
+        id: "cert6",
+        image: "./cert6.png",
+        category: "pharma",
+        badge: "⚕️ Lab Appreciation",
+        badgeColor: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/35",
+        title: "Laboratory Appreciation Certificate",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "4 Oct 2025",
+        description: "Awarded for dedicating time and expertise to organizing the chemical and crude drug racks in the SPCP laboratory."
+      },
+      {
+        id: "cert7",
+        image: "./cert7.png",
+        category: "pharma",
+        badge: "💊 World Pharmacy Week",
+        badgeColor: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/35",
+        title: "Pharma Career Week 2026",
+        issuer: "Kalpene Global Academy",
+        date: "25 Sep 2026",
+        description: "Completed '7 Days, 7 Career Paths, 7 Quizzes' organized during World Pharmacy Week 2026."
+      },
+      {
+        id: "cert8",
+        image: "./cert8.jpg",
+        altFiles: ["./Aikyam 3 Oral Presentation.jpg"],
+        category: "pharma",
+        badge: "🎤 Oral Presentation",
+        badgeColor: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/35",
+        title: "Oral Presentation – Aikyam 3.0",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "10–11 Feb 2026",
+        description: "Delivered a scientific Oral Presentation at the National Pharmafest – Aikyam 3.0 held at Sardar Patel Education Campus."
+      },
+      {
+        id: "cert9",
+        image: "./cert9.jpg",
+        altFiles: ["./Aikyam 3 Film Making.jpg"],
+        category: "pharma",
+        badge: "🎥 Film Making",
+        badgeColor: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/35",
+        title: "Film Making – Aikyam 3.0",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "10–11 Feb 2026",
+        description: "Participated in the technical event 'Film Making' at the National Pharmafest – Aikyam 3.0."
+      },
+      {
+        id: "cert10",
+        image: "./cert10.png",
+        category: "pharma",
+        badge: "🎬 Pharma Media",
+        badgeColor: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/35",
+        title: "1-Minute Video Making (NPW 2025)",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "Sep 2025",
+        description: "Created digital media content for patient safety awareness during National Pharmacovigilance Week 2025."
+      },
+      {
+        id: "cert11",
+        image: "./cert11.png",
+        category: "pharma",
+        badge: "🤝 Outreach",
+        badgeColor: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/35",
+        title: "Community Pharmacy Outreach",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "Sep 2025",
+        description: "Actively engaged in community healthcare awareness during National Pharmacovigilance Week 2025."
+      },
+
+      // --- TIER 3: AI, DIGITAL METRICS & CYBERSECURITY (cert12 - cert16) ---
+      {
+        id: "cert12",
+        image: "./cert12.png",
+        category: "tech",
+        badge: "🤖 LinkedIn Learning",
+        badgeColor: "bg-sky-500/15 text-sky-800 dark:text-sky-300 border-sky-500/35",
+        title: "What Is Generative AI?",
+        issuer: "LinkedIn Learning",
+        date: "30 May 2026",
+        description: "Completed foundational course on Generative AI tools and Artificial Intelligence principles."
+      },
+      {
+        id: "cert13",
+        image: "./cert13.png",
+        category: "tech",
+        badge: "✨ AI Mastermind",
+        badgeColor: "bg-sky-500/15 text-sky-800 dark:text-sky-300 border-sky-500/35",
+        title: "2-Day Generative AI Mastermind",
+        issuer: "Outskill / GrowthSchool",
+        date: "2026",
+        description: "Successfully completed the intensive 2-Day Generative AI Mastermind program."
+      },
+      {
+        id: "cert14",
+        image: "./cert14.png",
+        category: "tech",
+        badge: "⚡ Tech Workshop",
+        badgeColor: "bg-sky-500/15 text-sky-800 dark:text-sky-300 border-sky-500/35",
+        title: "AI Tools & ChatGPT Workshop",
+        issuer: "be10x Verified",
+        date: "18 Jan 2026",
+        description: "Hands-on workshop focused on creating AI presentations, analyzing data, and debugging using AI."
+      },
+      {
+        id: "cert15",
+        image: "./cert15.png",
+        category: "tech",
+        badge: "📊 Google Certified",
+        badgeColor: "bg-sky-500/15 text-sky-800 dark:text-sky-300 border-sky-500/35",
+        title: "Google Ads Measurement",
+        issuer: "Google",
+        date: "30 May 2026",
+        description: "Official Google certification demonstrating proficiency in digital metrics and campaign measurement."
+      },
+      {
+        id: "cert16",
+        image: "./cert16.png",
+        category: "tech",
+        badge: "🛡️ Cybersecurity",
+        badgeColor: "bg-rose-500/15 text-rose-800 dark:text-rose-300 border-rose-500/35",
+        title: "Ethical Hacking Workshop",
+        issuer: "VaultofCodes",
+        date: "24 Jan 2026",
+        description: "Completed a 2-hour intensive Ethical Hacking & Cybersecurity training session."
+      },
+
+      // --- TIER 4: LEADERSHIP, NSS & CAMPUS PARTICIPATION (cert17 - cert19) ---
+      {
+        id: "cert17",
+        image: "./cert17.png",
+        category: "campus",
+        badge: "🧭 Leadership",
+        badgeColor: "bg-slate-500/15 text-slate-800 dark:text-slate-300 border-slate-500/35",
+        title: "Sea Scouts & Guides Camp",
+        issuer: "Gujarat State Bharat Scouts & Guides",
+        date: "Dec 2019",
+        description: "Active participation in the Gujarat State Bharat Scouts & Guides Camp held at Brahmpuri, Okha."
+      },
+      {
+        id: "cert18",
+        image: "./cert18.png",
+        category: "campus",
+        badge: "🇮🇳 NSS & Unity",
+        badgeColor: "bg-slate-500/15 text-slate-800 dark:text-slate-300 border-slate-500/35",
+        title: "Sardar Patel 150th Anniversary Padyatra",
+        issuer: "Sardar Patel College of Pharmacy",
+        date: "19 Nov 2025",
+        description: "Actively participated in the Sardar Vallabhbhai Patel 150th Birth Anniversary Padyatra at SPCP."
+      },
+      {
+        id: "cert19",
+        image: "./cert19.png",
+        category: "campus",
+        badge: "🎨 NSS Initiative",
+        badgeColor: "bg-slate-500/15 text-slate-800 dark:text-slate-300 border-slate-500/35",
+        title: "Tobacco Free Educational Institute",
+        issuer: "NSS Cell • Sardar Patel College of Pharmacy",
+        date: "16 Oct 2024",
+        description: "Participated in the Anti-Tobacco Drawing Competition under the National Service Scheme (NSS) Cell."
+      }
+    ];
+
+    /* =========================================================================
+       2. SMART CERTIFICATE IMAGE LOADER
+       ========================================================================= */
+    const certGrid = document.getElementById('certificates-grid');
+
+    function drawFallbackCertificateCanvas(canvas, cert, highRes = false) {
+      const ctx = canvas.getContext('2d');
+      const w = highRes ? 960 : 480;
+      const h = highRes ? 680 : 340;
+      canvas.width = w;
+      canvas.height = h;
+
+      const grad = ctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(0.5, '#f8fafc');
+      grad.addColorStop(1, '#f1f5f9');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.strokeStyle = cert.category === 'winner' ? '#d97706' : '#0d9488';
+      ctx.lineWidth = highRes ? 8 : 4;
+      ctx.strokeRect(highRes ? 24 : 12, highRes ? 24 : 12, w - (highRes ? 48 : 24), h - (highRes ? 48 : 24));
+
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = highRes ? 2 : 1;
+      ctx.strokeRect(highRes ? 36 : 18, highRes ? 36 : 18, w - (highRes ? 72 : 36), h - (highRes ? 72 : 36));
+
+      ctx.fillStyle = '#0f172a';
+      ctx.textAlign = 'center';
+      ctx.font = `700 ${highRes ? 22 : 11}px "Plus Jakarta Sans", sans-serif`;
+      ctx.fillText(cert.issuer.toUpperCase(), w / 2, highRes ? 105 : 52);
+
+      ctx.fillStyle = cert.category === 'winner' ? '#b45309' : '#0f766e';
+      ctx.font = `800 ${highRes ? 18 : 9}px "JetBrains Mono", monospace`;
+      ctx.fillText(`SAVE IMAGE AS: ${cert.id}.png OR ${cert.id}.jpg`, w / 2, highRes ? 145 : 72);
+
+      ctx.fillStyle = '#334155';
+      ctx.font = `500 ${highRes ? 18 : 9}px "Plus Jakarta Sans", sans-serif`;
+      ctx.fillText('Proudly Presented To', w / 2, highRes ? 210 : 105);
+
+      ctx.fillStyle = '#0f172a';
+      ctx.font = `800 ${highRes ? 34 : 17}px "Plus Jakarta Sans", sans-serif`;
+      ctx.fillText('Parth Sanjaybhai Talpada', w / 2, highRes ? 260 : 130);
+
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.beginPath();
+      ctx.moveTo(w * 0.2, highRes ? 285 : 142);
+      ctx.lineTo(w * 0.8, highRes ? 285 : 142);
+      ctx.stroke();
+
+      ctx.fillStyle = '#0f172a';
+      ctx.font = `700 ${highRes ? 28 : 14}px "Plus Jakarta Sans", sans-serif`;
+      ctx.fillText(cert.title, w / 2, highRes ? 345 : 172);
+
+      ctx.fillStyle = '#475569';
+      ctx.font = `500 ${highRes ? 18 : 9}px "Plus Jakarta Sans", sans-serif`;
+      const words = cert.description.split(' ');
+      let line = '';
+      let y = highRes ? 395 : 198;
+      words.forEach(word => {
+        const testLine = line + word + ' ';
+        if (ctx.measureText(testLine).width > w * 0.72) {
+          ctx.fillText(line, w / 2, y);
+          line = word + ' ';
+          y += highRes ? 28 : 14;
+        } else {
+          line = testLine;
+        }
+      });
+      ctx.fillText(line, w / 2, y);
+
+      ctx.fillStyle = '#64748b';
+      ctx.font = `600 ${highRes ? 16 : 8}px "JetBrains Mono", monospace`;
+      ctx.fillText(`Issued: ${cert.date} • File: ${cert.id}.png / .jpg`, w / 2, h - (highRes ? 55 : 28));
+    }
+
+    function attachSmartCertImage(imgEl, canvasEl, cert) {
+      const baseName = cert.image.replace(/\.(png|jpg|jpeg|webp)$/i, '');
+      const candidates = [
+        cert.image,
+        `${baseName}.png`,
+        `${baseName}.jpg`,
+        `${baseName}.jpeg`,
+        `${baseName}.PNG`,
+        `${baseName}.JPG`,
+        ...(cert.altFiles || [])
+      ];
+      const uniqueCandidates = [...new Set(candidates)];
+      let attempt = 0;
+
+      function tryNext() {
+        if (attempt >= uniqueCandidates.length) {
+          imgEl.classList.add('hidden');
+          canvasEl.classList.remove('hidden');
+          drawFallbackCertificateCanvas(canvasEl, cert, false);
+          return;
+        }
+        const candidateSrc = uniqueCandidates[attempt++];
+        imgEl.src = candidateSrc;
+      }
+
+      imgEl.onload = () => {
+        cert.resolvedImage = imgEl.src;
+        imgEl.classList.remove('hidden');
+        canvasEl.classList.add('hidden');
+      };
+      imgEl.onerror = tryNext;
+
+      tryNext();
+    }
+
+    function buildCertificateCards() {
+      certGrid.innerHTML = '';
+      CERTIFICATES.forEach((cert, index) => {
+        const card = document.createElement('article');
+        card.setAttribute('data-category', cert.category);
+        card.className = `cert-item liquid-glass rounded-3xl p-4 sm:p-5 flex flex-col justify-between space-y-4 group`;
+
+        card.innerHTML = `
+          <div class="space-y-4">
+            <!-- Certificate Default Preview Box + High-Contrast Dark Glass Eye Button -->
+            <div class="relative rounded-2xl overflow-hidden bg-slate-900/20 border border-slate-300/80 dark:border-white/20 aspect-[16/11] flex items-center justify-center cursor-pointer cert-preview-trigger" data-index="${index}">
+              <img id="cert-img-${index}" class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]" alt="${cert.title}" />
+              <canvas id="cert-canvas-${index}" class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]"></canvas>
+
+              <!-- High-Contrast Dark Liquid Glass Eye Button -->
+              <button type="button" aria-label="View Full Certificate" class="cert-eye-btn cert-eye-glass absolute top-3 left-3 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" data-index="${index}" title="View full certificate">
+                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Badge, Title & Aligned Short Description -->
+            <div class="space-y-2 px-1">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold border ${cert.badgeColor}">
+                  ${cert.badge}
+                </span>
+                <span class="text-[11px] font-mono font-medium text-slate-600 dark:text-slate-400">${cert.date}</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-extrabold leading-snug text-slate-900 dark:text-white">${cert.title}</h3>
+              <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                ${cert.description}
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-3 px-1 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-600 dark:text-slate-400">
+            <span class="truncate">${cert.issuer}</span>
+            <button type="button" class="cert-preview-link text-emerald-700 dark:text-emerald-400 font-bold hover:underline shrink-0 ml-2" data-index="${index}">
+              Full Image →
+            </button>
+          </div>
+        `;
+
+        certGrid.appendChild(card);
+
+        const imgEl = document.getElementById(`cert-img-${index}`);
+        const canvasEl = document.getElementById(`cert-canvas-${index}`);
+        attachSmartCertImage(imgEl, canvasEl, cert);
+      });
+
+      lucide.createIcons();
+      attachInteractiveGlassListeners();
+    }
+
+    buildCertificateCards();
+
+    /* =========================================================================
+       3. FULL-IMAGE CERTIFICATE MODAL
+       ========================================================================= */
+    const certModal = document.getElementById('cert-modal');
+    const modalCanvas = document.getElementById('modal-canvas');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBadge = document.getElementById('modal-badge');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalIssuer = document.getElementById('modal-issuer');
+
+    function openCertificateModal(index) {
+      const cert = CERTIFICATES[index];
+      if (!cert) return;
+
+      modalTitle.textContent = cert.title;
+      modalBadge.textContent = cert.badge;
+      modalDesc.textContent = cert.description;
+      modalIssuer.textContent = `${cert.issuer} (${cert.date})`;
+
+      certModal.classList.remove('hidden');
+      certModal.classList.add('flex');
+
+      if (cert.resolvedImage) {
+        modalImg.src = cert.resolvedImage;
+        modalImg.classList.remove('hidden');
+        modalCanvas.classList.add('hidden');
+      } else {
+        modalImg.classList.add('hidden');
+        modalCanvas.classList.remove('hidden');
+        drawFallbackCertificateCanvas(modalCanvas, cert, true);
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.cert-preview-trigger, .cert-eye-btn, .cert-preview-link');
+      if (trigger) {
+        const index = parseInt(trigger.getAttribute('data-index'), 10);
+        openCertificateModal(index);
+      }
+    });
+
+    document.getElementById('modal-close').addEventListener('click', () => {
+      certModal.classList.add('hidden');
+      certModal.classList.remove('flex');
+    });
+
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) {
+        certModal.classList.add('hidden');
+        certModal.classList.remove('flex');
+      }
+    });
+
+    /* =========================================================================
+       4. CATEGORY FILTERING FOR CERTIFICATES
+       ========================================================================= */
+    const filterBtns = document.querySelectorAll('.cert-filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        filterBtns.forEach(b => b.classList.remove('liquid-btn-primary'));
+        btn.classList.add('liquid-btn-primary');
+
+        document.querySelectorAll('.cert-item').forEach(card => {
+          const cat = card.getAttribute('data-category');
+          card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    /* =========================================================================
+       5. SUBTLE LIQUID GLASS SPECULAR TRACKING
+       ========================================================================= */
+    function attachInteractiveGlassListeners() {
+      const glassElements = document.querySelectorAll('.liquid-glass');
+      glassElements.forEach(card => {
+        const handleMove = (clientX, clientY) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--card-x', `${clientX - rect.left}px`);
+          card.style.setProperty('--card-y', `${clientY - rect.top}px`);
+        };
+        card.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+        card.addEventListener('touchmove', (e) => {
+          if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+      });
+    }
+    attachInteractiveGlassListeners();
+
+    /* =========================================================================
+       6. THEME TOGGLE & MOBILE MENU
+       ========================================================================= */
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    /* =========================================================================
+       7. FORMSPREE ASYNC SUBMISSION HANDLER
+       ========================================================================= */
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const submitText = document.getElementById('contact-submit-text');
+
+    if (PORTFOLIO_CONFIG.formspreeEndpoint) {
+      contactForm.action = PORTFOLIO_CONFIG.formspreeEndpoint;
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const endpoint = PORTFOLIO_CONFIG.formspreeEndpoint;
+
+      if (!endpoint || endpoint.includes('YOUR_FORMSPREE_ID')) {
+        formStatus.className = 'rounded-xl p-3.5 text-xs font-semibold bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 block';
+        formStatus.textContent = 'Almost ready! Paste your Formspree URL inside PORTFOLIO_CONFIG.formspreeEndpoint in index.html to activate direct email delivery.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitText.textContent = 'Sending...';
+      formStatus.classList.add('hidden');
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formStatus.className = 'rounded-xl p-3.5 text-xs font-semibold bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40 block';
+          formStatus.textContent = '✅ Thank you! Your message has been sent directly to Parth S Talpada.';
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          throw new Error(data.error || 'Submission failed.');
+        }
+      } catch (err) {
+        formStatus.className = 'rounded-xl p-3.5 text-xs font-semibold bg-rose-500/20 text-rose-800 dark:text-rose-300 border border-rose-500/40 block';
+        formStatus.textContent = '❌ Could not send message right now. Please email talpadaparth1@gmail.com directly.';
+      } finally {
+        submitBtn.disabled = false;
+        submitText.textContent = 'Send Message';
+      }
+    });
+
+    /* =========================================================================
+       8. MULTI-MODE EXECUTIVE TECH BACKGROUND + CURSOR-REPELLED STARS
+          (Zero Space-Time Grid Lines — Supports Modes 1 to 5 in PORTFOLIO_CONFIG)
+       ========================================================================= */
+    const canvas = document.getElementById('tech-bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let wavePhase = 0;
+
+    const pointer = {
+      x: -1000,
+      y: -1000,
+      smoothX: -1000,
+      smoothY: -1000,
+      active: false,
+      repelRadius: 165
+    };
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initStars();
+    }
+
+    function initStars() {
+      stars = [];
+      const count = Math.min(105, Math.floor((canvas.width * canvas.height) / 13500));
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.28,
+          vy: (Math.random() - 0.5) * 0.28,
+          pushX: 0,
+          pushY: 0,
+          size: Math.random() * 2.1 + 1.2,
+          twinklePhase: Math.random() * Math.PI * 2,
+          twinkleSpeed: Math.random() * 0.028 + 0.01
+        });
+      }
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+      if (!pointer.active) {
+        pointer.smoothX = pointer.x;
+        pointer.smoothY = pointer.y;
+        pointer.active = true;
+      }
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches[0]) {
+        pointer.x = e.touches[0].clientX;
+        pointer.y = e.touches[0].clientY;
+        pointer.active = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('mouseout', () => {
+      pointer.active = false;
+    });
+
+    window.addEventListener('resize', resizeCanvas);
+
+    function drawStarShape(x, y, radius, alpha, isDark) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.fillStyle = isDark
+        ? `rgba(226, 232, 240, ${alpha})`
+        : `rgba(30, 41, 59, ${alpha * 0.72})`;
+
+      ctx.beginPath();
+      const inner = radius * 0.32;
+      const outer = radius * 1.65;
+      for (let i = 0; i < 4; i++) {
+        const angle = (i * Math.PI) / 2;
+        ctx.lineTo(Math.cos(angle) * outer, Math.sin(angle) * outer);
+        const midAngle = angle + Math.PI / 4;
+        ctx.lineTo(Math.cos(midAngle) * inner, Math.sin(midAngle) * inner);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function animateTechBackground() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isDark = document.documentElement.classList.contains('dark');
+      const mode = PORTFOLIO_CONFIG.backgroundMode || 1;
+
+      if (pointer.active) {
+        pointer.smoothX += (pointer.x - pointer.smoothX) * 0.14;
+        pointer.smoothY += (pointer.y - pointer.smoothY) * 0.14;
+      }
+
+      // MODE 3: Architectural Micro-Dot Matrix
+      if (mode === 3) {
+        const dotSpacing = 44;
+        ctx.fillStyle = isDark ? 'rgba(148, 163, 184, 0.11)' : 'rgba(15, 23, 42, 0.08)';
+        for (let x = 22; x < canvas.width; x += dotSpacing) {
+          for (let y = 22; y < canvas.height; y += dotSpacing) {
+            ctx.fillRect(x, y, 1.5, 1.5);
+          }
+        }
+      }
+
+      // MODE 4: Interactive Cursor Ambient Halo
+      if (mode === 4 && pointer.active) {
+        const grad = ctx.createRadialGradient(
+          pointer.smoothX, pointer.smoothY, 10,
+          pointer.smoothX, pointer.smoothY, 320
+        );
+        grad.addColorStop(0, isDark ? 'rgba(16, 185, 129, 0.11)' : 'rgba(16, 185, 129, 0.09)');
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      // MODE 5: Flowing Digital Data Waves
+      if (mode === 5) {
+        wavePhase += 0.012;
+        for (let w = 0; w < 3; w++) {
+          ctx.beginPath();
+          ctx.lineWidth = 1.2;
+          ctx.strokeStyle = isDark
+            ? `rgba(56, 189, 248, ${0.09 - w * 0.02})`
+            : `rgba(15, 118, 110, ${0.08 - w * 0.02})`;
+          for (let x = 0; x <= canvas.width; x += 24) {
+            const y = canvas.height * (0.3 + w * 0.22) +
+                      Math.sin(x * 0.003 + wavePhase + w) * 38;
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+      }
+
+      // UPDATE & DRAW CURSOR-REPELLED STARS (Active in all 5 modes)
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        s.x += s.vx;
+        s.y += s.vy;
+
+        if (s.x < 0) s.x = canvas.width;
+        if (s.x > canvas.width) s.x = 0;
+        if (s.y < 0) s.y = canvas.height;
+        if (s.y > canvas.height) s.y = 0;
+
+        if (pointer.active) {
+          const dx = (s.x + s.pushX) - pointer.smoothX;
+          const dy = (s.y + s.pushY) - pointer.smoothY;
+          const dist = Math.hypot(dx, dy);
+
+          if (dist < pointer.repelRadius && dist > 0.1) {
+            const repelForce = Math.pow((pointer.repelRadius - dist) / pointer.repelRadius, 2) * 9.5;
+            s.pushX += (dx / dist) * repelForce;
+            s.pushY += (dy / dist) * repelForce;
+          }
+        }
+
+        s.pushX *= 0.90;
+        s.pushY *= 0.90;
+
+        const sx = s.x + s.pushX;
+        const sy = s.y + s.pushY;
+
+        // MODE 1: Subtle Star Constellation Links (Only between nearby stars, no grid)
+        if (mode === 1) {
+          for (let j = i + 1; j < stars.length; j++) {
+            const s2 = stars[j];
+            const s2x = s2.x + s2.pushX;
+            const s2y = s2.y + s2.pushY;
+            const dist = Math.hypot(sx - s2x, sy - s2y);
+            if (dist < 115) {
+              const lineAlpha = (1 - dist / 115) * (isDark ? 0.16 : 0.11);
+              ctx.beginPath();
+              ctx.strokeStyle = isDark
+                ? `rgba(148, 163, 184, ${lineAlpha})`
+                : `rgba(51, 65, 85, ${lineAlpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.moveTo(sx, sy);
+              ctx.lineTo(s2x, s2y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        s.twinklePhase += s.twinkleSpeed;
+        const alpha = 0.45 + Math.sin(s.twinklePhase) * 0.35;
+        drawStarShape(sx, sy, s.size, alpha, isDark);
+      }
+
+      requestAnimationFrame(animateTechBackground);
+    }
+
+    resizeCanvas();
+    animateTechBackground();
+  </script>
 </body>
 </html>
